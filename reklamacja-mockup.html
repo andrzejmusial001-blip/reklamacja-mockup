@@ -1231,12 +1231,14 @@
         <button class="filter-chip"        id="chip-saved"  onclick="setChip('saved')">🟠 Zapisano</button>
         <button class="filter-chip"        id="chip-synced" onclick="setChip('synced')">🟢 Zsynchr.</button>
       </div>
-      <div class="filter-toggle-row">
-        <button class="btn-filter-toggle" id="chip-filters" onclick="toggleFilterPanel()">
-          <span>⚙</span> <span>Filtry szczegółowe</span>
-          <span class="btn-filter-toggle-arrow">▾</span>
-        </button>
-      </div>
+    </div>
+
+    <!-- Przycisk filtrów — poza sticky header, zawsze widoczny -->
+    <div style="background:#005a9e; padding:0 20px 14px;">
+      <button class="btn-filter-toggle" id="chip-filters" onclick="toggleFilterPanel()">
+        <span>⚙</span> <span>Filtry szczegółowe</span>
+        <span class="btn-filter-toggle-arrow">▾</span>
+      </button>
     </div>
 
     <!-- Panel filtrów -->
