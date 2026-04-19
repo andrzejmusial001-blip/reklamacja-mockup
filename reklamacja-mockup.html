@@ -444,65 +444,137 @@
   .list-title { font-size: 18px; font-weight: 700; flex: 1; }
   .list-count { font-size: 13px; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; }
 
-  /* Filter bar */
+  /* ---- STATUS CHIPS ---- */
   .filter-bar { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: none; }
   .filter-bar::-webkit-scrollbar { display: none; }
 
   .filter-chip {
     flex-shrink: 0; border-radius: 20px; padding: 6px 14px;
-    font-size: 12px; font-weight: 600; cursor: pointer; border: none;
+    font-size: 12px; font-weight: 600; cursor: pointer;
     transition: all 0.15s; white-space: nowrap;
     background: rgba(255,255,255,0.15); color: white;
     border: 1px solid rgba(255,255,255,0.2);
   }
 
-  .filter-chip.active {
-    background: white; color: #0078d4;
-    border-color: white;
-  }
+  .filter-chip.active { background: white; color: #0078d4; border-color: white; }
 
-  /* Filter panel */
-  .filter-panel {
-    background: white; padding: 16px;
-    border-bottom: 1px solid #eee; display: none;
-  }
-
+  /* ---- FILTER PANEL ---- */
+  .filter-panel { background: white; border-bottom: 1px solid #eee; display: none; }
   .filter-panel.open { display: block; }
-  .filter-panel-title { font-size: 12px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 12px; }
 
-  .filter-row { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
-
-  .filter-select {
-    border: 1.5px solid #e0e0e0; border-radius: 10px;
-    padding: 8px 12px; font-size: 13px; color: #333;
-    background: #fafafa; outline: none; cursor: pointer;
-    font-family: 'Segoe UI', sans-serif; flex: 1; min-width: 100px;
-  }
-
-  .filter-select:focus { border-color: #0078d4; }
-
-  .filter-search-box {
-    border: 1.5px solid #e0e0e0; border-radius: 10px;
-    padding: 8px 12px; font-size: 13px;
+  /* DATE ROW */
+  .fp-date-row {
     display: flex; align-items: center; gap: 8px;
-    background: #fafafa; flex: 1;
+    padding: 12px 14px; border-bottom: 1px solid #f0f0f0;
   }
 
-  .filter-search-box input {
+  .fp-date-label { font-size: 11px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.7px; flex-shrink: 0; }
+
+  .fp-date-input {
+    border: 1.5px solid #e0e0e0; border-radius: 10px;
+    padding: 7px 12px; font-size: 13px; color: #333;
+    background: #fafafa; outline: none; cursor: pointer;
+    font-family: 'Segoe UI', sans-serif; flex: 1;
+  }
+
+  .fp-date-input:focus { border-color: #0078d4; background: #fff; }
+  .fp-date-input.active-filter { border-color: #0078d4; background: #f0f7ff; color: #0078d4; font-weight: 600; }
+
+  .fp-date-quick { display: flex; gap: 6px; flex-shrink: 0; }
+
+  .fp-quick-chip {
+    border-radius: 8px; padding: 5px 10px; font-size: 11px; font-weight: 600;
+    cursor: pointer; border: 1.5px solid #e0e0e0;
+    background: #fafafa; color: #888; white-space: nowrap; transition: all 0.15s;
+  }
+
+  .fp-quick-chip.active { background: #e8f2fd; color: #0078d4; border-color: #0078d4; }
+  .fp-quick-chip:hover { border-color: #0078d4; color: #0078d4; }
+
+  /* SMART SEARCH */
+  .fp-search-row { padding: 10px 14px; border-bottom: 1px solid #f0f0f0; position: relative; }
+  .fp-search-row:last-child { border-bottom: none; }
+
+  .fp-search-label { font-size: 11px; font-weight: 700; color: #999; text-transform: uppercase; letter-spacing: 0.7px; margin-bottom: 6px; }
+
+  .fp-smart-box {
+    border: 1.5px solid #e0e0e0; border-radius: 10px;
+    padding: 8px 12px; display: flex; align-items: center; gap: 8px;
+    background: #fafafa; transition: border-color 0.15s;
+  }
+
+  .fp-smart-box:focus-within { border-color: #0078d4; background: #fff; }
+  .fp-smart-box.has-value { border-color: #0078d4; background: #f0f7ff; }
+
+  .fp-smart-box input {
     border: none; outline: none; background: transparent;
     font-size: 13px; color: #333; width: 100%;
     font-family: 'Segoe UI', sans-serif;
   }
 
-  .filter-search-box input::placeholder { color: #bbb; }
+  .fp-smart-box input::placeholder { color: #bbb; }
+  .fp-clear-x { color: #ccc; cursor: pointer; font-size: 14px; flex-shrink: 0; display: none; }
+  .fp-clear-x.show { display: block; color: #aaa; }
 
-  .btn-clear-filters {
-    border: 1.5px solid #e0e0e0; border-radius: 10px;
-    padding: 8px 16px; font-size: 12px; font-weight: 600;
-    color: #888; background: white; cursor: pointer; white-space: nowrap;
+  /* Autocomplete dropdown */
+  .fp-autocomplete {
+    position: absolute; left: 14px; right: 14px;
+    background: white; border: 1.5px solid #e0e0e0; border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12); z-index: 200; display: none;
+    overflow: hidden; max-height: 160px; overflow-y: auto;
   }
 
-  .btn-clear-filters:hover { border-color: #0078d4; color: #0078d4; }
+  .fp-autocomplete.open { display: block; }
+
+  .fp-ac-item {
+    padding: 10px 14px; font-size: 13px; cursor: pointer;
+    display: flex; align-items: center; gap: 8px;
+    border-bottom: 1px solid #f5f5f5; transition: background 0.1s;
+  }
+
+  .fp-ac-item:last-child { border-bottom: none; }
+  .fp-ac-item:hover { background: #f0f7ff; }
+  .fp-ac-item strong { color: #0078d4; }
+  .fp-ac-sub { font-size: 11px; color: #aaa; margin-top: 1px; }
+
+  /* Bottom row */
+  .fp-bottom-row {
+    padding: 10px 14px; display: flex; align-items: center; justify-content: space-between;
+    background: #fafafa; border-top: 1px solid #f0f0f0;
+  }
+
+  .fp-active-count { font-size: 12px; color: #888; }
+  .fp-active-count strong { color: #0078d4; }
+
+  .btn-clear-filters {
+    border: none; border-radius: 8px; padding: 6px 14px;
+    font-size: 12px; font-weight: 600; color: #c62828;
+    background: #fde8e8; cursor: pointer;
+  }
+
+  /* ACTIVE FILTER TAGS */
+  .active-filters-bar {
+    display: flex; gap: 6px; padding: 8px 12px 6px;
+    overflow-x: auto; background: white;
+    border-bottom: 1px solid #eee; scrollbar-width: none;
+  }
+
+  .active-filters-bar::-webkit-scrollbar { display: none; }
+  .active-filters-bar.empty { display: none; }
+
+  .active-filter-tag {
+    flex-shrink: 0; background: #e8f2fd; color: #0078d4;
+    border-radius: 20px; padding: 4px 8px 4px 12px;
+    font-size: 11px; font-weight: 600;
+    display: flex; align-items: center; gap: 5px; cursor: pointer;
+    border: 1px solid #c5dff7;
+  }
+
+  .active-filter-tag .aft-x {
+    background: #c5dff7; color: #0078d4; border-radius: 50%;
+    width: 16px; height: 16px; display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700;
+  }
 
   /* List items */
   .list-body { padding: 12px; display: flex; flex-direction: column; gap: 8px; }
@@ -1133,59 +1205,62 @@
   <!-- ===== SCREEN LIST ===== -->
   <div id="screen-list" class="screen">
 
-    <!-- Nagłówek z chipami filtrów -->
+    <!-- Nagłówek -->
     <div class="list-header">
       <div class="list-header-top">
         <div class="list-title">Lista Reklamacji</div>
-        <div class="list-count" id="listCount">12 reklamacji</div>
+        <div class="list-count" id="listCount">7 reklamacji</div>
       </div>
+      <!-- Status chips -->
       <div class="filter-bar">
-        <button class="filter-chip active" onclick="toggleChip(this,'all')">Wszystkie</button>
-        <button class="filter-chip" onclick="toggleChip(this,'saved')">🟠 Zapisano</button>
-        <button class="filter-chip" onclick="toggleChip(this,'synced')">🟢 Zsynchronizowano</button>
-        <button class="filter-chip" onclick="toggleFilterPanel()">⚙ Filtry</button>
+        <button class="filter-chip active" id="chip-all"   onclick="setChip('all')">Wszystkie</button>
+        <button class="filter-chip"        id="chip-saved" onclick="setChip('saved')">🟠 Zapisano</button>
+        <button class="filter-chip"        id="chip-synced"onclick="setChip('synced')">🟢 Zsynchr.</button>
+        <button class="filter-chip"        id="chip-filters" onclick="toggleFilterPanel()">⚙ Filtry</button>
       </div>
     </div>
 
-    <!-- Panel filtrów rozwijany -->
+    <!-- Panel filtrów -->
     <div class="filter-panel" id="filterPanel">
-      <div class="filter-panel-title">Zawęź wyniki</div>
 
-      <div class="filter-row">
-        <select class="filter-select" id="filterDzien" onchange="applyFilters()">
-          <option value="">📅 Dzień</option>
-          <option value="19">19</option>
-          <option value="18">18</option>
-          <option value="17">17</option>
-          <option value="16">16</option>
-        </select>
-        <select class="filter-select" id="filterMiesiac" onchange="applyFilters()">
-          <option value="">📆 Miesiąc</option>
-          <option value="4">Kwiecień</option>
-          <option value="3">Marzec</option>
-          <option value="2">Luty</option>
-          <option value="1">Styczeń</option>
-        </select>
-        <select class="filter-select" id="filterRok" onchange="applyFilters()">
-          <option value="">🗓 Rok</option>
-          <option value="2026">2026</option>
-          <option value="2025">2025</option>
-        </select>
+      <!-- DATA -->
+      <div class="fp-date-row">
+        <div class="fp-date-label">Data</div>
+        <input type="date" class="fp-date-input" id="fpDate" value="2026-04-19" onchange="onDateChange()">
+        <div class="fp-date-quick">
+          <button class="fp-quick-chip active" id="qc-today"  onclick="setQuickDate('today')">Dziś</button>
+          <button class="fp-quick-chip"        id="qc-month"  onclick="setQuickDate('month')">Mies.</button>
+          <button class="fp-quick-chip"        id="qc-year"   onclick="setQuickDate('year')">Rok</button>
+          <button class="fp-quick-chip"        id="qc-all"    onclick="setQuickDate('all')">Wszystko</button>
+        </div>
       </div>
 
-      <div class="filter-row">
-        <div class="filter-search-box">
-          <span style="color:#aaa;">🏢</span>
-          <input type="text" id="filterKontrahent" placeholder="Szukaj kontrahenta..." oninput="applyFilters()">
+      <!-- KONTRAHENT smart search -->
+      <div class="fp-search-row" id="fpKontrRow">
+        <div class="fp-search-label">🏢 Kontrahent</div>
+        <div class="fp-smart-box" id="fpKontrBox">
+          <input type="text" id="fpKontrInput" placeholder="Wpisz nazwę lub NIP..."
+            oninput="onSmartInput('kontr')" onfocus="showAC('kontr')" autocomplete="off">
+          <span class="fp-clear-x" id="fpKontrClear" onclick="clearSmartFilter('kontr')">✕</span>
         </div>
-        <button class="btn-clear-filters" onclick="clearAllFilters()">✕ Wyczyść</button>
+        <div class="fp-autocomplete" id="fpKontrAC"></div>
       </div>
 
-      <div class="filter-row">
-        <div class="filter-search-box">
-          <span style="color:#aaa;">📦</span>
-          <input type="text" id="filterTowar" placeholder="Szukaj towaru lub EAN..." oninput="applyFilters()">
+      <!-- TOWAR smart search -->
+      <div class="fp-search-row" id="fpTowarRow">
+        <div class="fp-search-label">📦 Towar</div>
+        <div class="fp-smart-box" id="fpTowarBox">
+          <input type="text" id="fpTowarInput" placeholder="Wpisz nazwę towaru lub EAN..."
+            oninput="onSmartInput('towar')" onfocus="showAC('towar')" autocomplete="off">
+          <span class="fp-clear-x" id="fpTowarClear" onclick="clearSmartFilter('towar')">✕</span>
         </div>
+        <div class="fp-autocomplete" id="fpTowarAC"></div>
+      </div>
+
+      <!-- Dół panelu -->
+      <div class="fp-bottom-row">
+        <div class="fp-active-count" id="fpActiveCount">Aktywne filtry: <strong>1</strong></div>
+        <button class="btn-clear-filters" onclick="clearAllFilters()">✕ Wyczyść wszystkie</button>
       </div>
     </div>
 
@@ -1194,120 +1269,47 @@
 
     <!-- Lista reklamacji -->
     <div class="list-body" id="listBody">
-
-      <div class="list-item saved"
-        data-status="saved" data-dzien="19" data-miesiac="4" data-rok="2026"
-        data-kontrahent="ABC Sp. z o.o." data-towar="Telewizor LED 55"
-        onclick="showDetail('saved')">
+      <div class="list-item saved"   data-status="saved"  data-date="2026-04-19" data-kontrahent="ABC Sp. z o.o."           data-towar="Telewizor LED 55"  data-ean="5901234123457" onclick="showDetail('saved')">
         <div class="list-item-icon">📺</div>
-        <div class="list-item-body">
-          <div class="list-item-num">REKL/04/2026/012</div>
-          <div class="list-item-meta">ABC Sp. z o.o. · Telewizor LED 55</div>
-        </div>
-        <div class="list-item-right">
-          <div class="list-item-date">19.04</div>
-          <div class="status-pill status-saved">Zapisano</div>
-        </div>
+        <div class="list-item-body"><div class="list-item-num">REKL/04/2026/012</div><div class="list-item-meta">ABC Sp. z o.o. · Telewizor LED 55</div></div>
+        <div class="list-item-right"><div class="list-item-date">19.04</div><div class="status-pill status-saved">Zapisano</div></div>
       </div>
-
-      <div class="list-item synced"
-        data-status="synced" data-dzien="18" data-miesiac="4" data-rok="2026"
-        data-kontrahent="XYZ S.A." data-towar="Ekspres do kawy"
-        onclick="showDetail('synced')">
+      <div class="list-item synced" data-status="synced" data-date="2026-04-18" data-kontrahent="XYZ S.A."                  data-towar="Ekspres do kawy"   data-ean="4006381333931" onclick="showDetail('synced')">
         <div class="list-item-icon">☕</div>
-        <div class="list-item-body">
-          <div class="list-item-num">REKL/04/2026/011</div>
-          <div class="list-item-meta">XYZ S.A. · Ekspres do kawy</div>
-        </div>
-        <div class="list-item-right">
-          <div class="list-item-date">18.04</div>
-          <div class="status-pill status-synced">Zsynchronizowano</div>
-        </div>
+        <div class="list-item-body"><div class="list-item-num">REKL/04/2026/011</div><div class="list-item-meta">XYZ S.A. · Ekspres do kawy</div></div>
+        <div class="list-item-right"><div class="list-item-date">18.04</div><div class="status-pill status-synced">Zsynchronizowano</div></div>
       </div>
-
-      <div class="list-item synced"
-        data-status="synced" data-dzien="18" data-miesiac="4" data-rok="2026"
-        data-kontrahent="Jan Kowalski FHU" data-towar="Laptop 15.6"
-        onclick="showDetail('synced2')">
+      <div class="list-item synced" data-status="synced" data-date="2026-04-18" data-kontrahent="Jan Kowalski FHU"           data-towar="Laptop 15.6"       data-ean="5010677063201" onclick="showDetail('synced2')">
         <div class="list-item-icon">💻</div>
-        <div class="list-item-body">
-          <div class="list-item-num">REKL/04/2026/010</div>
-          <div class="list-item-meta">Jan Kowalski FHU · Laptop 15.6</div>
-        </div>
-        <div class="list-item-right">
-          <div class="list-item-date">18.04</div>
-          <div class="status-pill status-synced">Zsynchronizowano</div>
-        </div>
+        <div class="list-item-body"><div class="list-item-num">REKL/04/2026/010</div><div class="list-item-meta">Jan Kowalski FHU · Laptop 15.6</div></div>
+        <div class="list-item-right"><div class="list-item-date">18.04</div><div class="status-pill status-synced">Zsynchronizowano</div></div>
       </div>
-
-      <div class="list-item synced"
-        data-status="synced" data-dzien="17" data-miesiac="4" data-rok="2026"
-        data-kontrahent="Tech Solutions Sp. z o.o." data-towar="Zmywarka"
-        onclick="showDetail('synced')">
+      <div class="list-item synced" data-status="synced" data-date="2026-04-17" data-kontrahent="Tech Solutions Sp. z o.o." data-towar="Zmywarka"            data-ean="8710103631019" onclick="showDetail('synced')">
         <div class="list-item-icon">🍽</div>
-        <div class="list-item-body">
-          <div class="list-item-num">REKL/04/2026/009</div>
-          <div class="list-item-meta">Tech Solutions Sp. z o.o. · Zmywarka</div>
-        </div>
-        <div class="list-item-right">
-          <div class="list-item-date">17.04</div>
-          <div class="status-pill status-synced">Zsynchronizowano</div>
-        </div>
+        <div class="list-item-body"><div class="list-item-num">REKL/04/2026/009</div><div class="list-item-meta">Tech Solutions Sp. z o.o. · Zmywarka</div></div>
+        <div class="list-item-right"><div class="list-item-date">17.04</div><div class="status-pill status-synced">Zsynchronizowano</div></div>
       </div>
-
-      <div class="list-item saved"
-        data-status="saved" data-dzien="17" data-miesiac="4" data-rok="2026"
-        data-kontrahent="ABC Sp. z o.o." data-towar="Lodówka"
-        onclick="showDetail('saved')">
+      <div class="list-item saved"   data-status="saved"  data-date="2026-04-17" data-kontrahent="ABC Sp. z o.o."           data-towar="Lodówka"            data-ean="5901865238049" onclick="showDetail('saved')">
         <div class="list-item-icon">🧊</div>
-        <div class="list-item-body">
-          <div class="list-item-num">REKL/04/2026/008</div>
-          <div class="list-item-meta">ABC Sp. z o.o. · Lodówka</div>
-        </div>
-        <div class="list-item-right">
-          <div class="list-item-date">17.04</div>
-          <div class="status-pill status-saved">Zapisano</div>
-        </div>
+        <div class="list-item-body"><div class="list-item-num">REKL/04/2026/008</div><div class="list-item-meta">ABC Sp. z o.o. · Lodówka</div></div>
+        <div class="list-item-right"><div class="list-item-date">17.04</div><div class="status-pill status-saved">Zapisano</div></div>
       </div>
-
-      <div class="list-item synced"
-        data-status="synced" data-dzien="16" data-miesiac="4" data-rok="2026"
-        data-kontrahent="XYZ S.A." data-towar="Telewizor LED 55"
-        onclick="showDetail('synced')">
+      <div class="list-item synced" data-status="synced" data-date="2026-04-16" data-kontrahent="XYZ S.A."                  data-towar="Telewizor LED 55"  data-ean="5901234123457" onclick="showDetail('synced')">
         <div class="list-item-icon">📺</div>
-        <div class="list-item-body">
-          <div class="list-item-num">REKL/04/2026/007</div>
-          <div class="list-item-meta">XYZ S.A. · Telewizor LED 55</div>
-        </div>
-        <div class="list-item-right">
-          <div class="list-item-date">16.04</div>
-          <div class="status-pill status-synced">Zsynchronizowano</div>
-        </div>
+        <div class="list-item-body"><div class="list-item-num">REKL/04/2026/007</div><div class="list-item-meta">XYZ S.A. · Telewizor LED 55</div></div>
+        <div class="list-item-right"><div class="list-item-date">16.04</div><div class="status-pill status-synced">Zsynchronizowano</div></div>
       </div>
-
-      <div class="list-item saved"
-        data-status="saved" data-dzien="16" data-miesiac="4" data-rok="2026"
-        data-kontrahent="Jan Kowalski FHU" data-towar="Ekspres do kawy"
-        onclick="showDetail('saved')">
+      <div class="list-item saved"   data-status="saved"  data-date="2026-04-16" data-kontrahent="Jan Kowalski FHU"          data-towar="Ekspres do kawy"   data-ean="4006381333931" onclick="showDetail('saved')">
         <div class="list-item-icon">☕</div>
-        <div class="list-item-body">
-          <div class="list-item-num">REKL/04/2026/006</div>
-          <div class="list-item-meta">Jan Kowalski FHU · Ekspres do kawy</div>
-        </div>
-        <div class="list-item-right">
-          <div class="list-item-date">16.04</div>
-          <div class="status-pill status-saved">Zapisano</div>
-        </div>
+        <div class="list-item-body"><div class="list-item-num">REKL/04/2026/006</div><div class="list-item-meta">Jan Kowalski FHU · Ekspres do kawy</div></div>
+        <div class="list-item-right"><div class="list-item-date">16.04</div><div class="status-pill status-saved">Zapisano</div></div>
       </div>
-
     </div>
 
-    <!-- Brak wyników -->
     <div class="list-empty" id="listEmpty" style="display:none;">
       <div class="list-empty-icon">🔍</div>
       <div>Brak reklamacji spełniających<br>wybrane kryteria</div>
     </div>
-
   </div>
 
   <!-- ===== SCREEN EAN ===== -->
@@ -1364,7 +1366,7 @@
     if (id === 'screen-home') navItems[0].classList.add('active');
     else if (id === 'screen-form') navItems[1].classList.add('active');
     else if (id === 'screen-ean') navItems[2].classList.add('active');
-    else if (id === 'screen-list') navItems[3].classList.add('active');
+    else if (id === 'screen-list') { navItems[3].classList.add('active'); initList(); }
   }
 
   function showDetail(type) {
@@ -1467,79 +1469,246 @@
   }
 
   // ===== LISTA — FILTRY =====
-  let activeChip = 'all';
 
-  function toggleChip(el, type) {
-    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
-    el.classList.add('active');
-    activeChip = type;
+  // Stan filtrów
+  const fState = {
+    status:    'all',       // 'all' | 'saved' | 'synced'
+    dateMode:  'today',     // 'today' | 'month' | 'year' | 'all' | 'custom'
+    dateVal:   '2026-04-19',
+    kontrahent:'',
+    towar:     ''
+  };
+
+  // Dane do autocomplete
+  const allKontrahenci = ['ABC Sp. z o.o.','XYZ S.A.','Jan Kowalski FHU','Tech Solutions Sp. z o.o.'];
+  const allTowary = [
+    {nazwa:'Telewizor LED 55', ean:'5901234123457', opis:'Smart TV 4K HDR'},
+    {nazwa:'Ekspres do kawy',  ean:'4006381333931', opis:'Ciśnieniowy 15 bar'},
+    {nazwa:'Laptop 15.6',      ean:'5010677063201', opis:'i5 16GB 512SSD'},
+    {nazwa:'Zmywarka',         ean:'8710103631019', opis:'60cm 14 kompletów'},
+    {nazwa:'Lodówka',          ean:'5901865238049', opis:'NoFrost 350L'},
+  ];
+
+  // --- STATUS CHIP ---
+  function setChip(type) {
+    fState.status = type;
+    ['all','saved','synced'].forEach(t => {
+      document.getElementById('chip-' + t).classList.toggle('active', t === type);
+    });
     applyFilters();
   }
 
+  // --- FILTER PANEL ---
   function toggleFilterPanel() {
     const panel = document.getElementById('filterPanel');
     panel.classList.toggle('open');
-    const btn = document.querySelector('.filter-chip:last-child');
-    btn.classList.toggle('active', panel.classList.contains('open'));
+    document.getElementById('chip-filters').classList.toggle('active', panel.classList.contains('open'));
   }
 
-  function applyFilters() {
-    const dzien     = document.getElementById('filterDzien').value;
-    const miesiac   = document.getElementById('filterMiesiac').value;
-    const rok       = document.getElementById('filterRok').value;
-    const kontrahent= document.getElementById('filterKontrahent').value.toLowerCase();
-    const towar     = document.getElementById('filterTowar').value.toLowerCase();
+  // --- DATE QUICK CHIPS ---
+  function setQuickDate(mode) {
+    fState.dateMode = mode;
+    ['today','month','year','all'].forEach(m =>
+      document.getElementById('qc-' + m).classList.toggle('active', m === mode)
+    );
+    const inp = document.getElementById('fpDate');
+    if (mode === 'today') {
+      inp.value = '2026-04-19';
+      fState.dateVal = '2026-04-19';
+      inp.classList.add('active-filter');
+    } else if (mode === 'all') {
+      inp.value = '';
+      fState.dateVal = '';
+      inp.classList.remove('active-filter');
+    } else {
+      inp.classList.add('active-filter');
+      fState.dateVal = inp.value;
+    }
+    applyFilters();
+  }
 
+  function onDateChange() {
+    const v = document.getElementById('fpDate').value;
+    fState.dateVal = v;
+    fState.dateMode = 'custom';
+    ['today','month','year','all'].forEach(m =>
+      document.getElementById('qc-' + m).classList.remove('active')
+    );
+    document.getElementById('fpDate').classList.toggle('active-filter', !!v);
+    applyFilters();
+  }
+
+  // --- SMART AUTOCOMPLETE ---
+  function onSmartInput(type) {
+    const val = document.getElementById(type === 'kontr' ? 'fpKontrInput' : 'fpTowarInput').value;
+    if (type === 'kontr') { fState.kontrahent = val; updateSmartUI('kontr', val); }
+    else                  { fState.towar = val;      updateSmartUI('towar', val); }
+    showAC(type);
+    applyFilters();
+  }
+
+  function updateSmartUI(type, val) {
+    const box   = document.getElementById(type === 'kontr' ? 'fpKontrBox' : 'fpTowarBox');
+    const clear = document.getElementById(type === 'kontr' ? 'fpKontrClear' : 'fpTowarClear');
+    box.classList.toggle('has-value', !!val);
+    clear.classList.toggle('show', !!val);
+  }
+
+  function showAC(type) {
+    const isKontr = type === 'kontr';
+    const inputEl = document.getElementById(isKontr ? 'fpKontrInput' : 'fpTowarInput');
+    const ac      = document.getElementById(isKontr ? 'fpKontrAC'    : 'fpTowarAC');
+    const q = inputEl.value.toLowerCase();
+
+    if (!q) { ac.classList.remove('open'); return; }
+
+    let html = '';
+    if (isKontr) {
+      const matches = allKontrahenci.filter(k => k.toLowerCase().includes(q));
+      matches.forEach(k => {
+        const hi = k.replace(new RegExp(q,'gi'), m => '<strong>' + m + '</strong>');
+        html += `<div class="fp-ac-item" onclick="selectAC('kontr','${k}')">🏢 ${hi}</div>`;
+      });
+    } else {
+      const matches = allTowary.filter(t =>
+        t.nazwa.toLowerCase().includes(q) || t.ean.includes(q) || t.opis.toLowerCase().includes(q)
+      );
+      matches.forEach(t => {
+        const hi = t.nazwa.replace(new RegExp(q,'gi'), m => '<strong>' + m + '</strong>');
+        html += `<div class="fp-ac-item" onclick="selectAC('towar','${t.nazwa}')">
+          <div><div>${hi}</div><div class="fp-ac-sub">${t.ean} · ${t.opis}</div></div>
+        </div>`;
+      });
+    }
+
+    ac.innerHTML = html || '<div class="fp-ac-item" style="color:#bbb;">Brak wyników</div>';
+    ac.classList.toggle('open', !!html);
+  }
+
+  function selectAC(type, val) {
+    if (type === 'kontr') {
+      document.getElementById('fpKontrInput').value = val;
+      fState.kontrahent = val;
+      document.getElementById('fpKontrAC').classList.remove('open');
+      updateSmartUI('kontr', val);
+    } else {
+      document.getElementById('fpTowarInput').value = val;
+      fState.towar = val;
+      document.getElementById('fpTowarAC').classList.remove('open');
+      updateSmartUI('towar', val);
+    }
+    applyFilters();
+  }
+
+  function clearSmartFilter(type) {
+    if (type === 'kontr') {
+      document.getElementById('fpKontrInput').value = '';
+      fState.kontrahent = '';
+      document.getElementById('fpKontrAC').classList.remove('open');
+      updateSmartUI('kontr', '');
+    } else {
+      document.getElementById('fpTowarInput').value = '';
+      fState.towar = '';
+      document.getElementById('fpTowarAC').classList.remove('open');
+      updateSmartUI('towar', '');
+    }
+    applyFilters();
+  }
+
+  // Zamknij autocomplete po kliknięciu gdziekolwiek
+  document.addEventListener('click', e => {
+    if (!e.target.closest('#fpKontrRow')) document.getElementById('fpKontrAC').classList.remove('open');
+    if (!e.target.closest('#fpTowarRow')) document.getElementById('fpTowarAC').classList.remove('open');
+  });
+
+  // --- GŁÓWNA FUNKCJA FILTROWANIA ---
+  function applyFilters() {
     let visible = 0;
     document.querySelectorAll('#listBody .list-item').forEach(item => {
-      const statusMatch = activeChip === 'all' || item.dataset.status === activeChip;
-      const dzienMatch  = !dzien   || item.dataset.dzien   === dzien;
-      const miecMatch   = !miesiac || item.dataset.miesiac === miesiac;
-      const rokMatch    = !rok     || item.dataset.rok     === rok;
-      const kontrMatch  = !kontrahent || item.dataset.kontrahent.toLowerCase().includes(kontrahent);
-      const towarMatch  = !towar   || item.dataset.towar.toLowerCase().includes(towar);
+      const itemDate = item.dataset.date; // 'YYYY-MM-DD'
 
-      const show = statusMatch && dzienMatch && miecMatch && rokMatch && kontrMatch && towarMatch;
+      // Status
+      const sOk = fState.status === 'all' || item.dataset.status === fState.status;
+
+      // Data
+      let dOk = true;
+      if (fState.dateMode === 'today') {
+        dOk = itemDate === '2026-04-19';
+      } else if (fState.dateMode === 'month') {
+        dOk = itemDate.startsWith('2026-04');
+      } else if (fState.dateMode === 'year') {
+        dOk = itemDate.startsWith('2026');
+      } else if (fState.dateMode === 'custom' && fState.dateVal) {
+        dOk = itemDate === fState.dateVal;
+      } else if (fState.dateMode === 'all') {
+        dOk = true;
+      }
+
+      // Kontrahent
+      const kOk = !fState.kontrahent || item.dataset.kontrahent.toLowerCase().includes(fState.kontrahent.toLowerCase());
+
+      // Towar (nazwa lub EAN)
+      const tOk = !fState.towar || item.dataset.towar.toLowerCase().includes(fState.towar.toLowerCase()) || item.dataset.ean.includes(fState.towar);
+
+      const show = sOk && dOk && kOk && tOk;
       item.classList.toggle('hidden', !show);
       if (show) visible++;
     });
 
     document.getElementById('listCount').textContent = visible + ' reklamacji';
-    document.getElementById('listEmpty').style.display = visible === 0 ? 'block' : 'none';
-    document.getElementById('listBody').style.display  = visible === 0 ? 'none' : '';
-    renderActiveTags(dzien, miesiac, rok, kontrahent, towar);
+    document.getElementById('listEmpty').style.display  = visible === 0 ? 'block' : 'none';
+    document.getElementById('listBody').style.display   = visible === 0 ? 'none'  : '';
+    renderTags();
+    updateActiveCount();
   }
 
-  function renderActiveTags(dzien, miesiac, rok, kontrahent, towar) {
+  function renderTags() {
     const bar = document.getElementById('activeFiltersTags');
     bar.innerHTML = '';
-    const miesNames = {1:'Styczeń',2:'Luty',3:'Marzec',4:'Kwiecień'};
-    const add = (label, field) => {
+    const add = (label, clearFn) => {
       const t = document.createElement('div');
       t.className = 'active-filter-tag';
-      t.innerHTML = label + ' <span>✕</span>';
-      t.onclick = () => { clearField(field); applyFilters(); };
+      t.innerHTML = label + '<span class="aft-x">✕</span>';
+      t.querySelector('.aft-x').onclick = clearFn;
       bar.appendChild(t);
     };
-    if (dzien)      add('Dzień: ' + dzien, 'filterDzien');
-    if (miesiac)    add(miesNames[miesiac] || miesiac, 'filterMiesiac');
-    if (rok)        add(rok, 'filterRok');
-    if (kontrahent) add('🏢 ' + kontrahent, 'filterKontrahent');
-    if (towar)      add('📦 ' + towar, 'filterTowar');
+
+    if (fState.status !== 'all')
+      add(fState.status === 'saved' ? '🟠 Zapisano' : '🟢 Zsynchr.', () => { setChip('all'); });
+
+    if (fState.dateMode === 'today')  add('📅 Dziś', () => setQuickDate('all'));
+    else if (fState.dateMode === 'month') add('📅 Ten miesiąc', () => setQuickDate('all'));
+    else if (fState.dateMode === 'year')  add('📅 Ten rok', () => setQuickDate('all'));
+    else if (fState.dateMode === 'custom' && fState.dateVal) add('📅 ' + fState.dateVal, () => setQuickDate('all'));
+
+    if (fState.kontrahent) add('🏢 ' + fState.kontrahent, () => clearSmartFilter('kontr'));
+    if (fState.towar)      add('📦 ' + fState.towar,      () => clearSmartFilter('towar'));
+
+    bar.classList.toggle('empty', bar.children.length === 0);
   }
 
-  function clearField(id) {
-    const el = document.getElementById(id);
-    if (el.tagName === 'SELECT') el.value = '';
-    else el.value = '';
+  function updateActiveCount() {
+    let n = 0;
+    if (fState.status !== 'all') n++;
+    if (fState.dateMode !== 'all') n++;
+    if (fState.kontrahent) n++;
+    if (fState.towar) n++;
+    document.getElementById('fpActiveCount').innerHTML = 'Aktywne filtry: <strong>' + n + '</strong>';
   }
 
   function clearAllFilters() {
-    ['filterDzien','filterMiesiac','filterRok','filterKontrahent','filterTowar'].forEach(clearField);
-    activeChip = 'all';
-    document.querySelectorAll('.filter-chip').forEach((c,i) => c.classList.toggle('active', i===0));
+    fState.status = 'all'; fState.dateMode = 'today'; fState.dateVal = '2026-04-19';
+    fState.kontrahent = ''; fState.towar = '';
+    setChip('all');
+    document.getElementById('fpDate').value = '2026-04-19';
+    ['today','month','year','all'].forEach(m => document.getElementById('qc-'+m).classList.toggle('active', m==='today'));
+    document.getElementById('fpDate').classList.add('active-filter');
+    clearSmartFilter('kontr'); clearSmartFilter('towar');
     applyFilters();
   }
+
+  // Init lista przy wejściu
+  function initList() { applyFilters(); }
 
   // ===== SYNCHRONIZACJA =====
   const syncSteps = [
