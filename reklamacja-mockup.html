@@ -35,147 +35,174 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
   }
 
   .screen { display: none; }
   .screen.active { display: block; }
 
-  /* ===== SCREEN HOME ===== */
+  /* ===== HOME ===== */
   #screen-home {
     background: linear-gradient(160deg, #0078d4 0%, #005a9e 40%, #003d6b 100%);
     min-height: 760px;
   }
 
-  .home-header { padding: 40px 30px 30px; text-align: center; color: white; }
+  .home-header { padding: 36px 30px 24px; text-align: center; color: white; }
 
   .home-logo {
     width: 70px; height: 70px;
     background: rgba(255,255,255,0.15);
     border-radius: 20px;
-    margin: 0 auto 20px;
+    margin: 0 auto 18px;
     display: flex; align-items: center; justify-content: center;
     font-size: 32px;
     border: 1px solid rgba(255,255,255,0.2);
   }
 
   .home-title { font-size: 26px; font-weight: 700; }
-  .home-subtitle { font-size: 13px; opacity: 0.7; margin-top: 6px; }
 
-  .home-stats { display: flex; gap: 12px; padding: 0 24px 30px; }
+  .home-stats { display: flex; gap: 10px; padding: 0 20px 20px; }
 
   .stat-card {
-    flex: 1;
-    background: rgba(255,255,255,0.1);
-    border-radius: 16px;
-    padding: 16px;
-    text-align: center;
-    color: white;
+    flex: 1; background: rgba(255,255,255,0.1);
+    border-radius: 14px; padding: 14px 8px;
+    text-align: center; color: white;
     border: 1px solid rgba(255,255,255,0.15);
   }
 
-  .stat-num { font-size: 28px; font-weight: 700; }
-  .stat-label { font-size: 11px; opacity: 0.7; margin-top: 2px; }
+  .stat-num { font-size: 26px; font-weight: 700; }
+  .stat-label { font-size: 10px; opacity: 0.7; margin-top: 2px; }
 
-  .home-buttons { padding: 0 24px; display: flex; flex-direction: column; gap: 14px; }
+  .home-buttons { padding: 0 20px; display: flex; flex-direction: column; gap: 12px; }
 
   .btn-main {
-    border: none; border-radius: 18px; padding: 20px 24px;
-    font-size: 16px; font-weight: 600; cursor: pointer;
-    display: flex; align-items: center; gap: 16px;
+    border: none; border-radius: 16px; padding: 18px 20px;
+    font-size: 15px; font-weight: 600; cursor: pointer;
+    display: flex; align-items: center; gap: 14px;
     transition: all 0.2s; text-align: left;
   }
 
   .btn-main:active { transform: scale(0.97); }
-
   .btn-primary { background: white; color: #0078d4; box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
-  .btn-secondary {
-    background: rgba(255,255,255,0.15); color: white;
-    border: 1px solid rgba(255,255,255,0.25);
-  }
+  .btn-secondary { background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.25); }
+  .btn-sync { background: rgba(255,255,255,0.12); color: white; border: 1px solid rgba(255,255,255,0.2); }
 
   .btn-icon {
-    width: 44px; height: 44px; border-radius: 12px;
+    width: 42px; height: 42px; border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 20px; flex-shrink: 0;
+    font-size: 19px; flex-shrink: 0;
   }
 
   .btn-primary .btn-icon { background: #e8f2fd; }
   .btn-secondary .btn-icon { background: rgba(255,255,255,0.15); }
-  .btn-text { flex: 1; }
-  .btn-text span { display: block; font-size: 12px; font-weight: 400; opacity: 0.6; margin-top: 2px; }
+  .btn-sync .btn-icon { background: rgba(255,255,255,0.1); }
 
-  .home-recent { padding: 24px 24px 0; }
+  .btn-text { flex: 1; }
+  .btn-text span { display: block; font-size: 11px; font-weight: 400; opacity: 0.6; margin-top: 2px; }
+
+  .sync-badge {
+    background: rgba(255,200,0,0.25); color: #ffe066;
+    border: 1px solid rgba(255,200,0,0.3);
+    border-radius: 20px; padding: 3px 10px;
+    font-size: 11px; font-weight: 600; flex-shrink: 0;
+  }
+
+  .home-recent { padding: 20px 20px 0; }
 
   .section-title {
-    font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.6);
-    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;
+    font-size: 12px; font-weight: 600; color: rgba(255,255,255,0.6);
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;
   }
 
   .recent-item {
     background: rgba(255,255,255,0.08);
-    border-radius: 14px; padding: 14px 16px;
-    display: flex; align-items: center; gap: 12px;
+    border-radius: 14px; padding: 12px 14px;
+    display: flex; align-items: center; gap: 10px;
     color: white; margin-bottom: 8px;
     border: 1px solid rgba(255,255,255,0.08);
+    cursor: pointer; transition: all 0.15s;
   }
+
+  .recent-item:active { background: rgba(255,255,255,0.15); }
 
   .recent-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
   .dot-green { background: #4caf50; }
   .dot-orange { background: #ff9800; }
   .dot-blue { background: #64b5f6; }
-  .recent-num { font-size: 13px; font-weight: 600; flex: 1; }
-  .recent-name { font-size: 11px; opacity: 0.6; }
+
+  .recent-info { flex: 1; min-width: 0; }
+  .recent-num { font-size: 13px; font-weight: 600; }
+  .recent-name { font-size: 11px; opacity: 0.6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  .recent-right { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
   .recent-date { font-size: 11px; opacity: 0.5; }
 
-  /* ===== SCREEN FORM ===== */
-  #screen-form {
-    background: #f5f7fa;
-    min-height: 760px;
+  .status-pill {
+    border-radius: 20px; padding: 2px 8px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
   }
 
+  .status-saved { background: rgba(255,152,0,0.25); color: #ffcc66; border: 1px solid rgba(255,152,0,0.3); }
+  .status-synced { background: rgba(76,175,80,0.25); color: #81c784; border: 1px solid rgba(76,175,80,0.3); }
+
+  /* ===== COMMON FORM STYLES ===== */
   .form-header {
     background: linear-gradient(135deg, #0078d4, #005a9e);
-    padding: 20px 20px 24px;
-    color: white;
-    position: sticky; top: 28px; z-index: 50;
+    padding: 20px 20px 22px; color: white;
   }
 
-  .form-header-top { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .form-header-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
 
   .back-btn {
     width: 36px; height: 36px; border-radius: 10px;
     background: rgba(255,255,255,0.15); border: none;
     color: white; font-size: 18px; cursor: pointer;
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
   }
 
-  .form-title { font-size: 18px; font-weight: 700; }
+  .form-title { font-size: 18px; font-weight: 700; flex: 1; }
 
   .rekl-badge {
     background: rgba(255,255,255,0.15); border-radius: 10px;
-    padding: 10px 16px; display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px; display: flex; align-items: center; gap: 10px;
     border: 1px solid rgba(255,255,255,0.2);
+    justify-content: space-between;
   }
 
-  .rekl-num { font-size: 16px; font-weight: 700; }
+  .rekl-num { font-size: 15px; font-weight: 700; }
   .rekl-date { font-size: 11px; opacity: 0.7; }
 
-  .form-body { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+  .status-pill-header {
+    border-radius: 20px; padding: 4px 12px;
+    font-size: 11px; font-weight: 700; text-transform: uppercase; flex-shrink: 0;
+  }
+
+  .status-saved-h { background: rgba(255,152,0,0.3); color: #ffe066; border: 1px solid rgba(255,200,0,0.3); }
+  .status-synced-h { background: rgba(76,175,80,0.3); color: #a5d6a7; border: 1px solid rgba(76,175,80,0.3); }
+
+  .form-body { padding: 14px; display: flex; flex-direction: column; gap: 10px; background: #f5f7fa; }
 
   .form-card {
-    background: white; border-radius: 16px; padding: 16px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    background: white; border-radius: 14px; padding: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   }
 
   .card-label {
-    font-size: 11px; font-weight: 600; color: #888;
-    text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px;
+    font-size: 10px; font-weight: 600; color: #999;
+    text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 8px;
   }
 
-  /* ===== SEARCH INPUT (universal) ===== */
+  /* read-only field */
+  .field-readonly {
+    background: #f8f8f8; border: 1.5px solid #eee; border-radius: 10px;
+    padding: 10px 14px; font-size: 14px; color: #333; min-height: 40px;
+    display: flex; align-items: center;
+  }
+
+  .field-readonly.multiline { align-items: flex-start; min-height: 70px; line-height: 1.5; }
+
+  .locked-icon { color: #ccc; font-size: 13px; margin-left: auto; flex-shrink: 0; }
+
+  /* search/select */
   .search-box {
     border: 1.5px solid #e0e0e0; border-radius: 10px;
     padding: 10px 14px; font-size: 13px;
@@ -192,7 +219,6 @@
   .search-box input::placeholder { color: #bbb; }
   .search-icon { color: #aaa; flex-shrink: 0; }
 
-  /* ===== KONTRAHENT SEARCH ===== */
   .kontrahent-selected {
     border: 1.5px solid #0078d4; border-radius: 10px;
     padding: 10px 14px; background: #f0f7ff;
@@ -202,57 +228,52 @@
 
   .kontrahent-selected-name { font-size: 14px; font-weight: 600; color: #0078d4; }
   .kontrahent-clear { color: #aaa; font-size: 16px; cursor: pointer; padding: 0 4px; }
-
-  .kontrahent-list { display: flex; flex-direction: column; gap: 6px; max-height: 180px; overflow-y: auto; }
+  .kontrahent-list { display: flex; flex-direction: column; gap: 5px; max-height: 160px; overflow-y: auto; }
 
   .kontrahent-item {
     border: 1.5px solid #e8e8e8; border-radius: 10px;
-    padding: 10px 14px; cursor: pointer; transition: all 0.15s;
+    padding: 9px 12px; cursor: pointer; transition: all 0.15s;
     display: flex; align-items: center; justify-content: space-between;
   }
 
-  .kontrahent-item:hover { background: #f5f5f5; border-color: #ccc; }
-
+  .kontrahent-item:hover { background: #f5f5f5; }
   .kontrahent-item.selected { border-color: #0078d4; background: #f0f7ff; }
-
   .kontrahent-name { font-size: 13px; font-weight: 600; color: #333; }
-  .kontrahent-nip { font-size: 11px; color: #999; margin-top: 2px; }
-  .kontrahent-check { color: #0078d4; font-size: 16px; }
+  .kontrahent-nip { font-size: 11px; color: #999; margin-top: 1px; }
+  .kontrahent-check { color: #0078d4; font-size: 15px; }
 
-  /* ===== PRODUCT LIST ===== */
-  .product-list { display: flex; flex-direction: column; gap: 6px; max-height: 200px; overflow-y: auto; }
+  .product-list { display: flex; flex-direction: column; gap: 5px; max-height: 190px; overflow-y: auto; }
 
   .product-item {
     border: 1.5px solid #e8e8e8; border-radius: 10px;
-    padding: 10px 12px; display: flex; align-items: center;
+    padding: 9px 12px; display: flex; align-items: center;
     gap: 10px; cursor: pointer; transition: all 0.15s;
   }
 
-  .product-item:hover { background: #f5f5f5; border-color: #ccc; }
+  .product-item:hover { background: #f5f5f5; }
   .product-item.selected { border-color: #0078d4; background: #f0f7ff; }
-  .product-item.hidden { display: none; }
 
   .product-ean {
     background: #f0f0f0; border-radius: 6px;
-    padding: 4px 8px; font-size: 10px; font-family: monospace;
+    padding: 3px 7px; font-size: 10px; font-family: monospace;
     color: #666; flex-shrink: 0;
   }
 
   .product-item.selected .product-ean { background: #dceefb; color: #0078d4; }
   .product-name { font-size: 13px; font-weight: 600; color: #333; flex: 1; }
   .product-desc { font-size: 11px; color: #999; }
-  .check-icon { color: #0078d4; font-size: 16px; }
+  .check-icon { color: #0078d4; font-size: 15px; }
 
   .selected-info {
-    margin-top: 8px; padding: 8px 12px; border-radius: 8px;
-    font-size: 12px; font-weight: 600;
-    display: flex; align-items: center; gap: 6px;
+    margin-top: 8px; padding: 7px 12px; border-radius: 8px;
+    font-size: 12px; font-weight: 600; display: flex; align-items: center; gap: 6px;
   }
 
   .selected-info.ok { background: #e8f5e9; color: #2e7d32; }
   .selected-info.warn { background: #fff3e0; color: #e65100; }
 
-  /* ===== OTHER FORM CONTROLS ===== */
+  .no-results { text-align: center; padding: 14px; color: #bbb; font-size: 13px; }
+
   .form-row { display: flex; gap: 10px; }
   .form-row .form-card { flex: 1; }
 
@@ -267,34 +288,39 @@
 
   .photo-area {
     border: 2px dashed #ddd; border-radius: 12px;
-    padding: 24px; text-align: center; color: #bbb; font-size: 13px;
+    padding: 22px; text-align: center; color: #bbb; font-size: 13px;
     cursor: pointer; transition: all 0.2s;
   }
 
   .photo-area:hover { border-color: #0078d4; color: #0078d4; background: #f0f7ff; }
-  .photo-icon { font-size: 28px; margin-bottom: 8px; }
+  .photo-icon { font-size: 26px; margin-bottom: 6px; }
+
+  .photo-preview {
+    border-radius: 10px; background: #f0f0f0;
+    height: 80px; display: flex; align-items: center; justify-content: center;
+    font-size: 28px; color: #bbb;
+  }
 
   .textarea-input {
     border: 1.5px solid #e0e0e0; border-radius: 10px;
     padding: 10px 14px; font-size: 13px; width: 100%;
-    height: 80px; background: #fafafa; color: #555; resize: none;
+    height: 70px; background: #fafafa; color: #555; resize: none;
     outline: none; font-family: 'Segoe UI', sans-serif;
   }
 
   .textarea-input:focus { border-color: #0078d4; background: #fff; }
-
-  .ai-hint { font-size: 11px; color: #aaa; margin-top: 6px; }
+  .ai-hint { font-size: 11px; color: #aaa; margin-top: 5px; }
 
   .date-input {
     border: 1.5px solid #e0e0e0; border-radius: 10px;
     padding: 10px 14px; font-size: 14px; width: 100%;
     background: #fafafa; color: #333; outline: none;
-    font-family: 'Segoe UI', sans-serif; cursor: pointer;
+    font-family: 'Segoe UI', sans-serif;
   }
 
   .btn-save {
     background: linear-gradient(135deg, #0078d4, #005a9e);
-    color: white; border: none; border-radius: 14px; padding: 16px;
+    color: white; border: none; border-radius: 14px; padding: 15px;
     font-size: 15px; font-weight: 700; width: 100%; cursor: pointer;
     display: flex; align-items: center; justify-content: center; gap: 8px;
     box-shadow: 0 6px 20px rgba(0,120,212,0.35); transition: all 0.2s; margin-top: 4px;
@@ -302,7 +328,24 @@
 
   .btn-save:active { transform: scale(0.98); }
 
-  /* ===== SCREEN EAN ===== */
+  .btn-edit {
+    background: white; color: #0078d4;
+    border: 2px solid #0078d4; border-radius: 14px; padding: 13px;
+    font-size: 14px; font-weight: 600; width: 100%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    margin-top: 4px; transition: all 0.2s;
+  }
+
+  .btn-edit:active { background: #f0f7ff; }
+
+  .synced-banner {
+    background: #e8f5e9; border: 1.5px solid #c8e6c9;
+    border-radius: 12px; padding: 12px 16px;
+    display: flex; align-items: center; gap: 10px;
+    color: #2e7d32; font-size: 13px; font-weight: 600; margin-top: 4px;
+  }
+
+  /* ===== EAN SCREEN ===== */
   #screen-ean { background: #000; min-height: 760px; position: relative; }
 
   .ean-header {
@@ -333,97 +376,243 @@
   }
 
   .corner { position: absolute; width: 24px; height: 24px; border-color: #0078d4; border-style: solid; }
-  .corner-tl { top:0; left:0; border-width: 3px 0 0 3px; border-radius: 4px 0 0 0; }
-  .corner-tr { top:0; right:0; border-width: 3px 3px 0 0; border-radius: 0 4px 0 0; }
-  .corner-bl { bottom:0; left:0; border-width: 0 0 3px 3px; border-radius: 0 0 0 4px; }
-  .corner-br { bottom:0; right:0; border-width: 0 3px 3px 0; border-radius: 0 0 4px 0; }
+  .corner-tl { top:0; left:0; border-width:3px 0 0 3px; border-radius:4px 0 0 0; }
+  .corner-tr { top:0; right:0; border-width:3px 3px 0 0; border-radius:0 4px 0 0; }
+  .corner-bl { bottom:0; left:0; border-width:0 0 3px 3px; border-radius:0 0 0 4px; }
+  .corner-br { bottom:0; right:0; border-width:0 3px 3px 0; border-radius:0 0 4px 0; }
 
   .scan-line {
-    position: absolute; left: 4px; right: 4px; height: 2px;
+    position: absolute; left:4px; right:4px; height:2px;
     background: linear-gradient(90deg, transparent, #0078d4, #00b4ff, #0078d4, transparent);
     animation: scanAnim 2s ease-in-out infinite;
     box-shadow: 0 0 8px #0078d4;
   }
 
-  @keyframes scanAnim { 0%,100% { top:15%; } 50% { top:80%; } }
+  @keyframes scanAnim { 0%,100%{top:15%} 50%{top:80%} }
 
-  .scan-hint {
-    position: absolute; bottom: 20px; left: 0; right: 0;
-    text-align: center; color: rgba(255,255,255,0.6); font-size: 12px;
-  }
+  .scan-hint { position: absolute; bottom:20px; left:0; right:0; text-align:center; color:rgba(255,255,255,0.6); font-size:12px; }
 
   .ean-result {
     background: white; border-radius: 24px 24px 0 0;
-    padding: 24px 20px; margin-top: -20px;
+    padding: 22px 18px; margin-top: -20px;
     position: relative; z-index: 5; min-height: 420px;
   }
 
-  .ean-handle { width: 40px; height: 4px; background: #e0e0e0; border-radius: 2px; margin: 0 auto 20px; }
+  .ean-handle { width:40px; height:4px; background:#e0e0e0; border-radius:2px; margin:0 auto 18px; }
 
   .ean-found {
-    display: flex; align-items: center; gap: 14px;
-    background: #f0f7ff; border-radius: 16px; padding: 16px;
-    border: 1.5px solid #dceefb; margin-bottom: 16px;
+    display:flex; align-items:center; gap:14px;
+    background:#f0f7ff; border-radius:14px; padding:14px;
+    border:1.5px solid #dceefb; margin-bottom:14px;
   }
 
   .ean-product-icon {
-    width: 50px; height: 50px;
+    width:48px; height:48px;
     background: linear-gradient(135deg, #0078d4, #005a9e);
-    border-radius: 14px; display: flex; align-items: center;
-    justify-content: center; font-size: 24px; flex-shrink: 0;
+    border-radius:13px; display:flex; align-items:center; justify-content:center;
+    font-size:22px; flex-shrink:0;
   }
 
-  .ean-product-name { font-size: 15px; font-weight: 700; color: #333; }
-  .ean-product-desc { font-size: 12px; color: #888; margin-top: 2px; }
-  .ean-product-ean { font-size: 11px; color: #0078d4; font-family: monospace; margin-top: 4px; }
+  .ean-product-name { font-size:15px; font-weight:700; color:#333; }
+  .ean-product-desc { font-size:12px; color:#888; margin-top:2px; }
+  .ean-product-ean { font-size:11px; color:#0078d4; font-family:monospace; margin-top:3px; }
 
-  .ean-details { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+  .ean-details { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:18px; }
 
-  .ean-detail-card { background: #f9f9f9; border-radius: 12px; padding: 14px; text-align: center; }
-  .ean-detail-val { font-size: 22px; font-weight: 700; color: #333; }
-  .ean-detail-label { font-size: 11px; color: #999; margin-top: 2px; }
+  .ean-detail-card { background:#f9f9f9; border-radius:12px; padding:12px; text-align:center; }
+  .ean-detail-val { font-size:22px; font-weight:700; }
+  .ean-detail-label { font-size:11px; color:#999; margin-top:2px; }
 
   .btn-use-product {
     background: linear-gradient(135deg, #0078d4, #005a9e);
-    color: white; border: none; border-radius: 14px; padding: 16px;
-    font-size: 15px; font-weight: 700; width: 100%; cursor: pointer;
-    display: flex; align-items: center; justify-content: center; gap: 8px;
+    color:white; border:none; border-radius:14px; padding:15px;
+    font-size:15px; font-weight:700; width:100%; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; gap:8px;
     box-shadow: 0 6px 20px rgba(0,120,212,0.35);
   }
 
   /* ===== BOTTOM NAV ===== */
-  .bottom-nav { background: white; border-top: 1px solid #eee; display: flex; padding: 10px 0 16px; }
+  .bottom-nav { background:white; border-top:1px solid #eee; display:flex; padding:10px 0 16px; }
 
   .nav-item {
-    flex: 1; display: flex; flex-direction: column; align-items: center;
-    gap: 4px; font-size: 10px; color: #aaa; cursor: pointer;
-    padding: 4px 0; transition: color 0.15s;
+    flex:1; display:flex; flex-direction:column; align-items:center;
+    gap:4px; font-size:10px; color:#aaa; cursor:pointer; padding:4px 0;
+    transition: color 0.15s;
   }
 
-  .nav-item.active { color: #0078d4; }
-  .nav-icon { font-size: 20px; }
+  .nav-item.active { color:#0078d4; }
+  .nav-icon { font-size:20px; }
 
   /* ===== NOTIFICATION ===== */
   .notification {
-    position: fixed; top: 20px; left: 50%;
-    transform: translateX(-50%) translateY(-80px);
-    background: #333; color: white; border-radius: 12px;
-    padding: 12px 20px; font-size: 13px; font-weight: 500;
-    z-index: 9999; transition: transform 0.3s ease;
-    white-space: nowrap; box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    position:fixed; top:20px; left:50%;
+    transform:translateX(-50%) translateY(-80px);
+    background:#333; color:white; border-radius:12px;
+    padding:12px 20px; font-size:13px; font-weight:500;
+    z-index:9999; transition:transform 0.3s ease;
+    white-space:nowrap; box-shadow:0 8px 24px rgba(0,0,0,0.3);
   }
 
-  .notification.show { transform: translateX(-50%) translateY(0); }
-  .notification.success { background: #2e7d32; }
-  .notification.error { background: #c62828; }
+  .notification.show { transform:translateX(-50%) translateY(0); }
+  .notification.success { background:#2e7d32; }
+  .notification.error { background:#c62828; }
 
-  /* no-results */
-  .no-results { text-align: center; padding: 16px; color: #bbb; font-size: 13px; }
+  /* ===== SYNC OVERLAY ===== */
+  .sync-overlay {
+    position:fixed; inset:0; background:rgba(0,0,0,0.7);
+    display:none; align-items:center; justify-content:center;
+    z-index:9000; backdrop-filter:blur(4px);
+  }
+
+  .sync-overlay.active { display:flex; }
+
+  .sync-modal {
+    background:white; border-radius:24px;
+    width:340px; padding:28px 24px;
+    box-shadow:0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  .sync-header { text-align:center; margin-bottom:24px; }
+  .sync-logo { font-size:36px; margin-bottom:10px; }
+  .sync-title { font-size:18px; font-weight:700; color:#222; }
+  .sync-subtitle { font-size:13px; color:#888; margin-top:4px; }
+
+  .sync-progress-bar-bg {
+    background:#f0f0f0; border-radius:99px; height:10px;
+    overflow:hidden; margin-bottom:8px;
+  }
+
+  .sync-progress-bar {
+    height:100%; border-radius:99px;
+    background: linear-gradient(90deg, #0078d4, #00b4ff);
+    width:0%; transition:width 0.4s ease;
+    position:relative; overflow:hidden;
+  }
+
+  .sync-progress-bar::after {
+    content:'';
+    position:absolute; top:0; left:-100%; right:0; bottom:0;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation:shimmer 1.2s infinite;
+  }
+
+  @keyframes shimmer { 0%{left:-100%} 100%{left:100%} }
+
+  .sync-percent { font-size:13px; font-weight:700; color:#0078d4; text-align:right; margin-bottom:18px; }
+
+  .sync-steps { display:flex; flex-direction:column; gap:8px; margin-bottom:22px; }
+
+  .sync-step {
+    display:flex; align-items:center; gap:12px;
+    padding:10px 14px; border-radius:12px;
+    background:#f9f9f9; transition:all 0.3s;
+  }
+
+  .sync-step.active { background:#f0f7ff; }
+  .sync-step.done { background:#f1f8f1; }
+  .sync-step.error { background:#fdf3f3; }
+
+  .sync-step-icon { font-size:18px; flex-shrink:0; width:24px; text-align:center; }
+  .sync-step-text { flex:1; }
+  .sync-step-name { font-size:13px; font-weight:600; color:#333; }
+  .sync-step-status { font-size:11px; color:#aaa; margin-top:1px; }
+  .sync-step.active .sync-step-status { color:#0078d4; }
+  .sync-step.done .sync-step-status { color:#2e7d32; }
+  .sync-step.error .sync-step-status { color:#c62828; }
+
+  .sync-step-check { font-size:16px; flex-shrink:0; }
+
+  .sync-spinner {
+    width:18px; height:18px; border:2px solid #e0e0e0;
+    border-top-color:#0078d4; border-radius:50%;
+    animation:spin 0.8s linear infinite; flex-shrink:0;
+  }
+
+  @keyframes spin { to{transform:rotate(360deg)} }
+
+  .btn-sync-close {
+    background: linear-gradient(135deg, #0078d4, #005a9e);
+    color:white; border:none; border-radius:14px; padding:14px;
+    font-size:14px; font-weight:700; width:100%; cursor:pointer;
+    display:none; align-items:center; justify-content:center; gap:8px;
+  }
+
+  .btn-sync-close.visible { display:flex; }
+
+  .btn-sync-cancel {
+    background:transparent; color:#aaa; border:none;
+    font-size:13px; cursor:pointer; width:100%;
+    padding:10px; text-align:center; margin-top:4px;
+  }
 </style>
 </head>
 <body>
 
 <div id="notification" class="notification"></div>
+
+<!-- SYNC OVERLAY -->
+<div class="sync-overlay" id="syncOverlay">
+  <div class="sync-modal">
+    <div class="sync-header">
+      <div class="sync-logo">🔄</div>
+      <div class="sync-title">Synchronizacja ERP</div>
+      <div class="sync-subtitle" id="syncSubtitle">Łączenie z serwerem Comarch XL...</div>
+    </div>
+
+    <div class="sync-progress-bar-bg">
+      <div class="sync-progress-bar" id="syncBar"></div>
+    </div>
+    <div class="sync-percent" id="syncPercent">0%</div>
+
+    <div class="sync-steps" id="syncSteps">
+      <div class="sync-step" id="step-connect">
+        <div class="sync-step-icon">🌐</div>
+        <div class="sync-step-text">
+          <div class="sync-step-name">Połączenie z serwerem</div>
+          <div class="sync-step-status">Oczekiwanie...</div>
+        </div>
+        <div class="sync-step-check"></div>
+      </div>
+      <div class="sync-step" id="step-auth">
+        <div class="sync-step-icon">🔐</div>
+        <div class="sync-step-text">
+          <div class="sync-step-name">Autoryzacja</div>
+          <div class="sync-step-status">Oczekiwanie...</div>
+        </div>
+        <div class="sync-step-check"></div>
+      </div>
+      <div class="sync-step" id="step-send">
+        <div class="sync-step-icon">📤</div>
+        <div class="sync-step-text">
+          <div class="sync-step-name">Wysyłanie reklamacji</div>
+          <div class="sync-step-status">Oczekiwanie...</div>
+        </div>
+        <div class="sync-step-check"></div>
+      </div>
+      <div class="sync-step" id="step-confirm">
+        <div class="sync-step-icon">✅</div>
+        <div class="sync-step-text">
+          <div class="sync-step-name">Potwierdzenie ERP</div>
+          <div class="sync-step-status">Oczekiwanie...</div>
+        </div>
+        <div class="sync-step-check"></div>
+      </div>
+      <div class="sync-step" id="step-done">
+        <div class="sync-step-icon">🏁</div>
+        <div class="sync-step-text">
+          <div class="sync-step-name">Aktualizacja statusów</div>
+          <div class="sync-step-status">Oczekiwanie...</div>
+        </div>
+        <div class="sync-step-check"></div>
+      </div>
+    </div>
+
+    <button class="btn-sync-close" id="btnSyncClose" onclick="closeSyncOverlay()">
+      ✓ Gotowe — zamknij
+    </button>
+    <button class="btn-sync-cancel" id="btnSyncCancel" onclick="closeSyncOverlay()">Anuluj</button>
+  </div>
+</div>
 
 <div class="device">
   <div class="status-bar">
@@ -437,13 +626,12 @@
     <div class="home-header">
       <div class="home-logo">📋</div>
       <div class="home-title">System Reklamacji</div>
-      <div class="home-subtitle">ReklamacjaAI · Power Apps + Claude</div>
     </div>
 
     <div class="home-stats">
       <div class="stat-card"><div class="stat-num">12</div><div class="stat-label">Otwarte</div></div>
       <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Dziś</div></div>
-      <div class="stat-card"><div class="stat-num">47</div><div class="stat-label">W tym mies.</div></div>
+      <div class="stat-card"><div class="stat-num">47</div><div class="stat-label">Ten mies.</div></div>
     </div>
 
     <div class="home-buttons">
@@ -457,38 +645,55 @@
         <div class="btn-text">Skanuj EAN<span>Zeskanuj kod kreskowy towaru</span></div>
         <span style="color:rgba(255,255,255,0.5);font-size:18px;">›</span>
       </button>
+      <button class="btn-main btn-sync" onclick="startSync()">
+        <div class="btn-icon">🔄</div>
+        <div class="btn-text">Synchronizuj z ERP<span>Comarch XL — ostatnia synchro: dziś 8:15</span></div>
+        <div class="sync-badge">3 nowe</div>
+      </button>
     </div>
 
     <div class="home-recent">
       <div class="section-title">Ostatnie reklamacje</div>
-      <div class="recent-item">
+
+      <div class="recent-item" onclick="showDetail('saved')">
         <div class="recent-dot dot-orange"></div>
-        <div style="flex:1">
+        <div class="recent-info">
           <div class="recent-num">REKL/04/2026/012</div>
           <div class="recent-name">ABC Sp. z o.o. · Telewizor LED 55</div>
         </div>
-        <div class="recent-date">dziś</div>
+        <div class="recent-right">
+          <div class="recent-date">dziś</div>
+          <div class="status-pill status-saved">Zapisano</div>
+        </div>
       </div>
-      <div class="recent-item">
-        <div class="recent-dot dot-blue"></div>
-        <div style="flex:1">
+
+      <div class="recent-item" onclick="showDetail('synced')">
+        <div class="recent-dot dot-green"></div>
+        <div class="recent-info">
           <div class="recent-num">REKL/04/2026/011</div>
           <div class="recent-name">XYZ S.A. · Ekspres do kawy</div>
         </div>
-        <div class="recent-date">wczoraj</div>
+        <div class="recent-right">
+          <div class="recent-date">wczoraj</div>
+          <div class="status-pill status-synced">Zsynchronizowano</div>
+        </div>
       </div>
-      <div class="recent-item">
-        <div class="recent-dot dot-green"></div>
-        <div style="flex:1">
+
+      <div class="recent-item" onclick="showDetail('synced2')">
+        <div class="recent-dot dot-blue"></div>
+        <div class="recent-info">
           <div class="recent-num">REKL/04/2026/010</div>
           <div class="recent-name">Jan Kowalski FHU · Laptop 15.6</div>
         </div>
-        <div class="recent-date">18.04</div>
+        <div class="recent-right">
+          <div class="recent-date">18.04</div>
+          <div class="status-pill status-synced">Zsynchronizowano</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ===== SCREEN FORM ===== -->
+  <!-- ===== SCREEN FORM (nowa reklamacja) ===== -->
   <div id="screen-form" class="screen">
     <div class="form-header">
       <div class="form-header-top">
@@ -496,27 +701,22 @@
         <div class="form-title">Nowa Reklamacja</div>
       </div>
       <div class="rekl-badge">
-        <span>🔖</span>
         <div>
-          <div class="rekl-num">REKL/04/2026/013</div>
-          <div class="rekl-date">Wygenerowano automatycznie · 19.04.2026</div>
+          <div class="rekl-num">🔖 REKL/04/2026/013</div>
+          <div class="rekl-date">19.04.2026</div>
         </div>
+        <div class="status-pill-header status-saved-h">Zapisano</div>
       </div>
     </div>
 
     <div class="form-body">
 
-      <!-- KONTRAHENT -->
       <div class="form-card">
         <div class="card-label">Kontrahent</div>
-
-        <!-- Pasek wyszukiwania kontrahenta -->
         <div class="search-box" id="kontrahentSearchBox">
           <span class="search-icon">🔍</span>
           <input type="text" id="kontrahentSearch" placeholder="Szukaj kontrahenta..." oninput="filterKontrahenci()" />
         </div>
-
-        <!-- Wybrany kontrahent (pokazuje się po wyborze) -->
         <div class="kontrahent-selected" id="kontrahentSelected" style="display:none;">
           <div>
             <div class="kontrahent-selected-name" id="kontrahentSelectedName"></div>
@@ -524,8 +724,6 @@
           </div>
           <span class="kontrahent-clear" onclick="clearKontrahent()">✕</span>
         </div>
-
-        <!-- Lista kontrahentów -->
         <div class="kontrahent-list" id="kontrahentList">
           <div class="kontrahent-item" data-id="1" data-nazwa="ABC Sp. z o.o." data-nip="NIP: 1234567890" onclick="selectKontrahent(this)">
             <div><div class="kontrahent-name">ABC Sp. z o.o.</div><div class="kontrahent-nip">NIP: 1234567890</div></div>
@@ -546,74 +744,47 @@
         </div>
       </div>
 
-      <!-- TOWAR -->
       <div class="form-card">
         <div class="card-label">Wybierz towar</div>
-
-        <!-- Wyszukiwarka towaru -->
         <div class="search-box">
           <span class="search-icon">🔍</span>
           <input type="text" id="towarSearch" placeholder="Wpisz nazwę lub EAN..." oninput="filterTowary()" />
         </div>
-
-        <!-- Lista towarów -->
         <div class="product-list" id="productList">
           <div class="product-item" data-id="1" data-ean="5901234123457" data-nazwa="Telewizor LED 55" data-opis="Smart TV 4K HDR" onclick="selectTowar(this)">
             <div class="product-ean">5901234123457</div>
-            <div style="flex:1">
-              <div class="product-name">Telewizor LED 55</div>
-              <div class="product-desc">Smart TV 4K HDR</div>
-            </div>
+            <div style="flex:1"><div class="product-name">Telewizor LED 55</div><div class="product-desc">Smart TV 4K HDR</div></div>
             <span class="check-icon" style="display:none;">✓</span>
           </div>
           <div class="product-item" data-id="2" data-ean="4006381333931" data-nazwa="Ekspres do kawy" data-opis="Ciśnieniowy 15 bar" onclick="selectTowar(this)">
             <div class="product-ean">4006381333931</div>
-            <div style="flex:1">
-              <div class="product-name">Ekspres do kawy</div>
-              <div class="product-desc">Ciśnieniowy 15 bar</div>
-            </div>
+            <div style="flex:1"><div class="product-name">Ekspres do kawy</div><div class="product-desc">Ciśnieniowy 15 bar</div></div>
             <span class="check-icon" style="display:none;">✓</span>
           </div>
           <div class="product-item" data-id="3" data-ean="5010677063201" data-nazwa="Laptop 15.6" data-opis="i5 16GB 512SSD" onclick="selectTowar(this)">
             <div class="product-ean">5010677063201</div>
-            <div style="flex:1">
-              <div class="product-name">Laptop 15.6</div>
-              <div class="product-desc">i5 16GB 512SSD</div>
-            </div>
+            <div style="flex:1"><div class="product-name">Laptop 15.6</div><div class="product-desc">i5 16GB 512SSD</div></div>
             <span class="check-icon" style="display:none;">✓</span>
           </div>
           <div class="product-item" data-id="4" data-ean="8710103631019" data-nazwa="Zmywarka" data-opis="60cm 14 kompletów" onclick="selectTowar(this)">
             <div class="product-ean">8710103631019</div>
-            <div style="flex:1">
-              <div class="product-name">Zmywarka</div>
-              <div class="product-desc">60cm 14 kompletów</div>
-            </div>
+            <div style="flex:1"><div class="product-name">Zmywarka</div><div class="product-desc">60cm 14 kompletów</div></div>
             <span class="check-icon" style="display:none;">✓</span>
           </div>
           <div class="product-item" data-id="5" data-ean="5901865238049" data-nazwa="Lodówka" data-opis="NoFrost 350L" onclick="selectTowar(this)">
             <div class="product-ean">5901865238049</div>
-            <div style="flex:1">
-              <div class="product-name">Lodówka</div>
-              <div class="product-desc">NoFrost 350L</div>
-            </div>
+            <div style="flex:1"><div class="product-name">Lodówka</div><div class="product-desc">NoFrost 350L</div></div>
             <span class="check-icon" style="display:none;">✓</span>
           </div>
         </div>
-
         <div class="no-results" id="noResults" style="display:none;">Nie znaleziono towaru</div>
-
-        <!-- Info o wybranym towarze -->
-        <div class="selected-info warn" id="selectedInfo">
-          ⚠ Nie wybrano towaru
-        </div>
+        <div class="selected-info warn" id="selectedInfo">⚠ Nie wybrano towaru</div>
       </div>
 
-      <!-- ILOŚĆ + NR SERYJNY -->
       <div class="form-row">
         <div class="form-card">
           <div class="card-label">Ilość (szt.)</div>
-          <input class="text-input" type="number" value="1" min="1"
-            style="text-align:center;font-size:20px;font-weight:700;color:#0078d4;">
+          <input class="text-input" type="number" value="1" min="1" style="text-align:center;font-size:20px;font-weight:700;color:#0078d4;">
         </div>
         <div class="form-card" style="flex:2">
           <div class="card-label">Nr seryjny</div>
@@ -621,33 +792,211 @@
         </div>
       </div>
 
-      <!-- ZDJĘCIE -->
       <div class="form-card">
         <div class="card-label">Zdjęcie uszkodzenia</div>
         <div class="photo-area" onclick="showNotification('📸 Aparat dostępny w Power Apps','success')">
-          <div class="photo-icon">📸</div>
-          Dotknij aby zrobić zdjęcie
+          <div class="photo-icon">📸</div>Dotknij aby zrobić zdjęcie
         </div>
       </div>
 
-      <!-- OPIS USTERKI -->
       <div class="form-card">
         <div class="card-label">Opis usterki</div>
         <textarea class="textarea-input" placeholder="Opisz problem z towarem..."></textarea>
         <div class="ai-hint">💡 AI Claude automatycznie skategoryzuje usterkę</div>
       </div>
 
-      <!-- DATA GWARANCJI -->
       <div class="form-card">
         <div class="card-label">Data ważności gwarancji</div>
         <input class="date-input" type="date" value="2027-04-19">
       </div>
 
-      <!-- ZAPISZ -->
-      <button class="btn-save" onclick="saveReklamacja()">
-        💾 Zapisz reklamację
-      </button>
+      <button class="btn-save" onclick="saveReklamacja()">💾 Zapisz reklamację</button>
+    </div>
+  </div>
 
+  <!-- ===== SCREEN DETAIL — podgląd (Zapisano, edytowalne) ===== -->
+  <div id="screen-detail-saved" class="screen">
+    <div class="form-header">
+      <div class="form-header-top">
+        <button class="back-btn" onclick="showScreen('screen-home')">‹</button>
+        <div class="form-title">Reklamacja</div>
+      </div>
+      <div class="rekl-badge">
+        <div>
+          <div class="rekl-num">🔖 REKL/04/2026/012</div>
+          <div class="rekl-date">19.04.2026, 10:23</div>
+        </div>
+        <div class="status-pill-header status-saved-h">Zapisano</div>
+      </div>
+    </div>
+
+    <div class="form-body">
+
+      <div class="form-card">
+        <div class="card-label">Kontrahent</div>
+        <div class="field-readonly">ABC Sp. z o.o. <span style="font-size:11px;color:#aaa;margin-left:8px;">NIP: 1234567890</span></div>
+      </div>
+
+      <div class="form-card">
+        <div class="card-label">Towar</div>
+        <div class="field-readonly" style="flex-direction:column;align-items:flex-start;gap:4px;">
+          <div style="font-weight:600;">Telewizor LED 55</div>
+          <div style="font-size:11px;color:#999;">Smart TV 4K HDR · EAN: 5901234123457</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-card">
+          <div class="card-label">Ilość (szt.)</div>
+          <div class="field-readonly" style="justify-content:center;font-size:20px;font-weight:700;color:#0078d4;">2</div>
+        </div>
+        <div class="form-card" style="flex:2">
+          <div class="card-label">Nr seryjny</div>
+          <div class="field-readonly">SN987654321</div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div class="card-label">Zdjęcie uszkodzenia</div>
+        <div class="photo-preview">🖼</div>
+      </div>
+
+      <div class="form-card">
+        <div class="card-label">Opis usterki</div>
+        <div class="field-readonly multiline">Ekran wyświetla pionowe pasy po lewej stronie, problem pojawia się po około 30 minutach pracy.</div>
+      </div>
+
+      <div class="form-card">
+        <div class="card-label">Data ważności gwarancji</div>
+        <div class="field-readonly">📅 15.03.2027</div>
+      </div>
+
+      <button class="btn-edit" onclick="showNotification('✏ Tryb edycji — dostępny w Power Apps','success')">
+        ✏ Edytuj reklamację
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN DETAIL — podgląd (Zsynchronizowano, tylko do odczytu) ===== -->
+  <div id="screen-detail-synced" class="screen">
+    <div class="form-header">
+      <div class="form-header-top">
+        <button class="back-btn" onclick="showScreen('screen-home')">‹</button>
+        <div class="form-title">Reklamacja</div>
+      </div>
+      <div class="rekl-badge">
+        <div>
+          <div class="rekl-num">🔖 REKL/04/2026/011</div>
+          <div class="rekl-date">18.04.2026, 14:05</div>
+        </div>
+        <div class="status-pill-header status-synced-h">Zsynchronizowano</div>
+      </div>
+    </div>
+
+    <div class="form-body">
+
+      <div class="form-card">
+        <div class="card-label">Kontrahent</div>
+        <div class="field-readonly">XYZ S.A. <span style="font-size:11px;color:#aaa;margin-left:8px;">NIP: 9876543210</span></div>
+      </div>
+
+      <div class="form-card">
+        <div class="card-label">Towar</div>
+        <div class="field-readonly" style="flex-direction:column;align-items:flex-start;gap:4px;">
+          <div style="font-weight:600;">Ekspres do kawy</div>
+          <div style="font-size:11px;color:#999;">Ciśnieniowy 15 bar · EAN: 4006381333931</div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-card">
+          <div class="card-label">Ilość (szt.)</div>
+          <div class="field-readonly" style="justify-content:center;font-size:20px;font-weight:700;color:#0078d4;">1</div>
+        </div>
+        <div class="form-card" style="flex:2">
+          <div class="card-label">Nr seryjny</div>
+          <div class="field-readonly">SN112233445</div>
+        </div>
+      </div>
+
+      <div class="form-card">
+        <div class="card-label">Zdjęcie uszkodzenia</div>
+        <div class="photo-preview">🖼</div>
+      </div>
+
+      <div class="form-card">
+        <div class="card-label">Opis usterki</div>
+        <div class="field-readonly multiline">Ekspres nie podgrzewa wody do wymaganej temperatury. Po włączeniu wskaźnik temperatury nie osiąga 90°C.</div>
+      </div>
+
+      <div class="form-card">
+        <div class="card-label">Data ważności gwarancji</div>
+        <div class="field-readonly">📅 22.11.2026</div>
+      </div>
+
+      <div class="synced-banner">
+        <span>✅</span>
+        <div>
+          <div>Zsynchronizowano z Comarch XL</div>
+          <div style="font-size:11px;opacity:0.7;margin-top:2px;">18.04.2026, 15:30 · Nr ERP: RKL/2026/00234</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SCREEN DETAIL synced2 ===== -->
+  <div id="screen-detail-synced2" class="screen">
+    <div class="form-header">
+      <div class="form-header-top">
+        <button class="back-btn" onclick="showScreen('screen-home')">‹</button>
+        <div class="form-title">Reklamacja</div>
+      </div>
+      <div class="rekl-badge">
+        <div>
+          <div class="rekl-num">🔖 REKL/04/2026/010</div>
+          <div class="rekl-date">18.04.2026, 09:17</div>
+        </div>
+        <div class="status-pill-header status-synced-h">Zsynchronizowano</div>
+      </div>
+    </div>
+
+    <div class="form-body">
+      <div class="form-card">
+        <div class="card-label">Kontrahent</div>
+        <div class="field-readonly">Jan Kowalski FHU <span style="font-size:11px;color:#aaa;margin-left:8px;">NIP: 1112223334</span></div>
+      </div>
+      <div class="form-card">
+        <div class="card-label">Towar</div>
+        <div class="field-readonly" style="flex-direction:column;align-items:flex-start;gap:4px;">
+          <div style="font-weight:600;">Laptop 15.6</div>
+          <div style="font-size:11px;color:#999;">i5 16GB 512SSD · EAN: 5010677063201</div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-card">
+          <div class="card-label">Ilość (szt.)</div>
+          <div class="field-readonly" style="justify-content:center;font-size:20px;font-weight:700;color:#0078d4;">1</div>
+        </div>
+        <div class="form-card" style="flex:2">
+          <div class="card-label">Nr seryjny</div>
+          <div class="field-readonly">LP20240318XL</div>
+        </div>
+      </div>
+      <div class="form-card">
+        <div class="card-label">Opis usterki</div>
+        <div class="field-readonly multiline">Laptop nie ładuje baterii. Wskaźnik ładowania nie świeci pomimo podłączonego zasilacza.</div>
+      </div>
+      <div class="form-card">
+        <div class="card-label">Data ważności gwarancji</div>
+        <div class="field-readonly">📅 18.04.2026</div>
+      </div>
+      <div class="synced-banner">
+        <span>✅</span>
+        <div>
+          <div>Zsynchronizowano z Comarch XL</div>
+          <div style="font-size:11px;opacity:0.7;margin-top:2px;">18.04.2026, 10:00 · Nr ERP: RKL/2026/00233</div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -657,19 +1006,15 @@
       <button class="back-btn" onclick="showScreen('screen-home')">‹</button>
       <div class="ean-title">Skaner EAN</div>
     </div>
-
     <div class="camera-view">
       <div class="camera-grid"></div>
       <div class="scan-frame">
-        <div class="corner corner-tl"></div>
-        <div class="corner corner-tr"></div>
-        <div class="corner corner-bl"></div>
-        <div class="corner corner-br"></div>
+        <div class="corner corner-tl"></div><div class="corner corner-tr"></div>
+        <div class="corner corner-bl"></div><div class="corner corner-br"></div>
         <div class="scan-line"></div>
       </div>
       <div class="scan-hint">Skieruj aparat na kod kreskowy</div>
     </div>
-
     <div class="ean-result">
       <div class="ean-handle"></div>
       <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Zeskanowany produkt</div>
@@ -682,14 +1027,8 @@
         </div>
       </div>
       <div class="ean-details">
-        <div class="ean-detail-card">
-          <div class="ean-detail-val" style="color:#2e7d32;">12</div>
-          <div class="ean-detail-label">Stan magazynu</div>
-        </div>
-        <div class="ean-detail-card">
-          <div class="ean-detail-val" style="color:#0078d4;">ID: 1</div>
-          <div class="ean-detail-label">Nr produktu</div>
-        </div>
+        <div class="ean-detail-card"><div class="ean-detail-val" style="color:#2e7d32;">12</div><div class="ean-detail-label">Stan magazynu</div></div>
+        <div class="ean-detail-card"><div class="ean-detail-val" style="color:#0078d4;">ID: 1</div><div class="ean-detail-label">Nr produktu</div></div>
       </div>
       <button class="btn-use-product" onclick="useProduct()">✓ Użyj w reklamacji</button>
       <div style="text-align:center;margin-top:14px;font-size:12px;color:#bbb;cursor:pointer;">🔄 Skanuj kolejny kod</div>
@@ -703,21 +1042,9 @@
     <div class="nav-item" onclick="showScreen('screen-ean')"><span class="nav-icon">📷</span><span>Skan</span></div>
     <div class="nav-item"><span class="nav-icon">📊</span><span>Lista</span></div>
   </div>
-
 </div>
 
 <script>
-  // ===== DANE =====
-  const kontrahenci = [
-    {id:1, nazwa:'ABC Sp. z o.o.', nip:'NIP: 1234567890'},
-    {id:2, nazwa:'XYZ S.A.', nip:'NIP: 9876543210'},
-    {id:3, nazwa:'Jan Kowalski FHU', nip:'NIP: 1112223334'},
-    {id:4, nazwa:'Tech Solutions Sp. z o.o.', nip:'NIP: 5556667778'},
-  ];
-
-  let selectedKontrahentId = null;
-  let selectedTowarId = null;
-
   // ===== NAWIGACJA =====
   function showScreen(id) {
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
@@ -727,38 +1054,38 @@
     if (id === 'screen-home') navItems[0].classList.add('active');
     else if (id === 'screen-form') navItems[1].classList.add('active');
     else if (id === 'screen-ean') navItems[2].classList.add('active');
+  }
 
-    // scroll to top on screen change
-    document.querySelector('.device').scrollTop = 0;
+  function showDetail(type) {
+    if (type === 'saved') showScreen('screen-detail-saved');
+    else if (type === 'synced') showScreen('screen-detail-synced');
+    else if (type === 'synced2') showScreen('screen-detail-synced2');
   }
 
   // ===== KONTRAHENT =====
+  let selectedKontrahentId = null;
+  let selectedTowarId = null;
+
   function filterKontrahenci() {
     const q = document.getElementById('kontrahentSearch').value.toLowerCase();
     document.querySelectorAll('#kontrahentList .kontrahent-item').forEach(item => {
-      const nazwa = item.dataset.nazwa.toLowerCase();
-      const nip = item.dataset.nip.toLowerCase();
-      item.style.display = (nazwa.includes(q) || nip.includes(q)) ? '' : 'none';
+      const n = item.dataset.nazwa.toLowerCase();
+      const p = item.dataset.nip.toLowerCase();
+      item.style.display = (n.includes(q) || p.includes(q)) ? '' : 'none';
     });
   }
 
   function selectKontrahent(el) {
     selectedKontrahentId = el.dataset.id;
-    const nazwa = el.dataset.nazwa;
-    const nip = el.dataset.nip;
-
-    // Zaznacz wiersz
     document.querySelectorAll('#kontrahentList .kontrahent-item').forEach(i => {
       i.classList.remove('selected');
       i.querySelector('.kontrahent-check').style.display = 'none';
     });
     el.classList.add('selected');
     el.querySelector('.kontrahent-check').style.display = '';
-
-    // Pokaż wybranego, ukryj wyszukiwarkę i listę
     document.getElementById('kontrahentSelected').style.display = 'flex';
-    document.getElementById('kontrahentSelectedName').textContent = nazwa;
-    document.getElementById('kontrahentSelectedNIP').textContent = nip;
+    document.getElementById('kontrahentSelectedName').textContent = el.dataset.nazwa;
+    document.getElementById('kontrahentSelectedNIP').textContent = el.dataset.nip;
     document.getElementById('kontrahentSearchBox').style.display = 'none';
     document.getElementById('kontrahentList').style.display = 'none';
   }
@@ -781,10 +1108,9 @@
     const q = document.getElementById('towarSearch').value.toLowerCase();
     let visible = 0;
     document.querySelectorAll('#productList .product-item').forEach(item => {
-      const nazwa = item.dataset.nazwa.toLowerCase();
-      const ean = item.dataset.ean.toLowerCase();
-      const opis = item.dataset.opis.toLowerCase();
-      const match = nazwa.includes(q) || ean.includes(q) || opis.includes(q);
+      const match = item.dataset.nazwa.toLowerCase().includes(q)
+        || item.dataset.ean.includes(q)
+        || item.dataset.opis.toLowerCase().includes(q);
       item.style.display = match ? '' : 'none';
       if (match) visible++;
     });
@@ -793,30 +1119,21 @@
 
   function selectTowar(el) {
     selectedTowarId = el.dataset.id;
-    const nazwa = el.dataset.nazwa;
-
-    // Zaznacz wiersz
     document.querySelectorAll('#productList .product-item').forEach(i => {
       i.classList.remove('selected');
       i.querySelector('.check-icon').style.display = 'none';
     });
     el.classList.add('selected');
     el.querySelector('.check-icon').style.display = '';
-
-    // Aktualizuj info
     const info = document.getElementById('selectedInfo');
     info.className = 'selected-info ok';
-    info.textContent = '✓  ' + nazwa;
+    info.textContent = '✓  ' + el.dataset.nazwa;
   }
 
   // ===== ZAPIS =====
   function saveReklamacja() {
-    if (!selectedKontrahentId) {
-      showNotification('Wybierz kontrahenta!', 'error'); return;
-    }
-    if (!selectedTowarId) {
-      showNotification('Wybierz towar!', 'error'); return;
-    }
+    if (!selectedKontrahentId) { showNotification('Wybierz kontrahenta!', 'error'); return; }
+    if (!selectedTowarId) { showNotification('Wybierz towar!', 'error'); return; }
     showNotification('✓ Reklamacja REKL/04/2026/013 zapisana!', 'success');
     setTimeout(() => {
       clearKontrahent();
@@ -836,6 +1153,78 @@
   function useProduct() {
     showNotification('✓ Telewizor LED 55 wybrany', 'success');
     setTimeout(() => showScreen('screen-form'), 900);
+  }
+
+  // ===== SYNCHRONIZACJA =====
+  const syncSteps = [
+    { id:'step-connect', name:'Połączenie z serwerem', active:'Łączenie z api.comarch.pl...', done:'Połączono', pct:20 },
+    { id:'step-auth',    name:'Autoryzacja',           active:'Weryfikacja tokena...',       done:'Autoryzowano', pct:35 },
+    { id:'step-send',    name:'Wysyłanie reklamacji',  active:'Wysyłanie 3 reklamacji...',   done:'Wysłano 3 reklamacje', pct:65 },
+    { id:'step-confirm', name:'Potwierdzenie ERP',     active:'Oczekiwanie na ERP...',       done:'Potwierdzono — nr ERP przypisane', pct:85 },
+    { id:'step-done',    name:'Aktualizacja statusów', active:'Aktualizowanie lokalnie...',  done:'Statusy zaktualizowane', pct:100 },
+  ];
+
+  function startSync() {
+    document.getElementById('syncOverlay').classList.add('active');
+    document.getElementById('btnSyncClose').classList.remove('visible');
+    document.getElementById('btnSyncCancel').style.display = '';
+    document.getElementById('syncBar').style.width = '0%';
+    document.getElementById('syncPercent').textContent = '0%';
+    document.getElementById('syncSubtitle').textContent = 'Łączenie z serwerem Comarch XL...';
+
+    // reset wszystkich kroków
+    syncSteps.forEach(s => {
+      const el = document.getElementById(s.id);
+      el.className = 'sync-step';
+      el.querySelector('.sync-step-status').textContent = 'Oczekiwanie...';
+      el.querySelector('.sync-step-check').innerHTML = '';
+    });
+
+    let i = 0;
+    function runStep() {
+      if (i >= syncSteps.length) {
+        document.getElementById('syncSubtitle').textContent = '✓ Synchronizacja zakończona pomyślnie';
+        document.getElementById('btnSyncClose').classList.add('visible');
+        document.getElementById('btnSyncCancel').style.display = 'none';
+        return;
+      }
+      const s = syncSteps[i];
+      const el = document.getElementById(s.id);
+
+      // poprzedni → done
+      if (i > 0) {
+        const prev = document.getElementById(syncSteps[i-1].id);
+        prev.className = 'sync-step done';
+        prev.querySelector('.sync-step-status').textContent = syncSteps[i-1].done;
+        prev.querySelector('.sync-step-check').innerHTML = '<span style="color:#2e7d32;font-size:16px;">✓</span>';
+      }
+
+      // aktywny
+      el.className = 'sync-step active';
+      el.querySelector('.sync-step-status').textContent = s.active;
+      el.querySelector('.sync-step-check').innerHTML = '<div class="sync-spinner"></div>';
+
+      document.getElementById('syncBar').style.width = s.pct + '%';
+      document.getElementById('syncPercent').textContent = s.pct + '%';
+      document.getElementById('syncSubtitle').textContent = s.active;
+
+      i++;
+      setTimeout(runStep, i === 3 ? 1400 : 900);
+    }
+
+    setTimeout(runStep, 400);
+  }
+
+  function closeSyncOverlay() {
+    document.getElementById('syncOverlay').classList.remove('active');
+    // ostatni krok done
+    const last = syncSteps[syncSteps.length - 1];
+    const el = document.getElementById(last.id);
+    if (el.classList.contains('active')) {
+      el.className = 'sync-step done';
+      el.querySelector('.sync-step-status').textContent = last.done;
+      el.querySelector('.sync-step-check').innerHTML = '<span style="color:#2e7d32;font-size:16px;">✓</span>';
+    }
   }
 
   // ===== NOTYFIKACJA =====
