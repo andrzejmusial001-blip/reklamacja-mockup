@@ -436,8 +436,7 @@
 
   .list-header {
     background: linear-gradient(135deg, #0078d4, #005a9e);
-    padding: 20px 20px 16px; color: white;
-    position: sticky; top: 28px; z-index: 50;
+    padding: 20px 20px 14px; color: white;
   }
 
   .list-header-top { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
@@ -1225,16 +1224,13 @@
         <div class="list-title">Lista Reklamacji</div>
         <div class="list-count" id="listCount">7 reklamacji</div>
       </div>
-      <!-- Status chips -->
-      <div class="filter-bar">
+      <!-- Wiersz 1: status chips -->
+      <div class="filter-bar" style="margin-bottom:10px;">
         <button class="filter-chip active" id="chip-all"    onclick="setChip('all')">Wszystkie</button>
         <button class="filter-chip"        id="chip-saved"  onclick="setChip('saved')">🟠 Zapisano</button>
         <button class="filter-chip"        id="chip-synced" onclick="setChip('synced')">🟢 Zsynchr.</button>
       </div>
-    </div>
-
-    <!-- Przycisk filtrów — poza sticky header, zawsze widoczny -->
-    <div style="background:#005a9e; padding:0 20px 14px;">
+      <!-- Wiersz 2: przycisk filtrów -->
       <button class="btn-filter-toggle" id="chip-filters" onclick="toggleFilterPanel()">
         <span>⚙</span> <span>Filtry szczegółowe</span>
         <span class="btn-filter-toggle-arrow">▾</span>
