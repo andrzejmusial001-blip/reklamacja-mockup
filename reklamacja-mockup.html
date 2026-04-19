@@ -11,9 +11,10 @@
     background: #1a1a2e;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
     font-family: 'Segoe UI', sans-serif;
+    padding: 30px 0;
   }
 
   .device {
@@ -34,6 +35,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
   }
 
   .screen { display: none; }
@@ -43,46 +47,24 @@
   #screen-home {
     background: linear-gradient(160deg, #0078d4 0%, #005a9e 40%, #003d6b 100%);
     min-height: 760px;
-    padding: 0;
   }
 
-  .home-header {
-    padding: 40px 30px 30px;
-    text-align: center;
-    color: white;
-  }
+  .home-header { padding: 40px 30px 30px; text-align: center; color: white; }
 
   .home-logo {
-    width: 70px;
-    height: 70px;
+    width: 70px; height: 70px;
     background: rgba(255,255,255,0.15);
     border-radius: 20px;
     margin: 0 auto 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     font-size: 32px;
-    backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.2);
   }
 
-  .home-title {
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-  }
+  .home-title { font-size: 26px; font-weight: 700; }
+  .home-subtitle { font-size: 13px; opacity: 0.7; margin-top: 6px; }
 
-  .home-subtitle {
-    font-size: 13px;
-    opacity: 0.7;
-    margin-top: 6px;
-  }
-
-  .home-stats {
-    display: flex;
-    gap: 12px;
-    padding: 0 24px 30px;
-  }
+  .home-stats { display: flex; gap: 12px; padding: 0 24px 30px; }
 
   .stat-card {
     flex: 1;
@@ -92,114 +74,63 @@
     text-align: center;
     color: white;
     border: 1px solid rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
   }
 
-  .stat-num {
-    font-size: 28px;
-    font-weight: 700;
-  }
+  .stat-num { font-size: 28px; font-weight: 700; }
+  .stat-label { font-size: 11px; opacity: 0.7; margin-top: 2px; }
 
-  .stat-label {
-    font-size: 11px;
-    opacity: 0.7;
-    margin-top: 2px;
-  }
-
-  .home-buttons {
-    padding: 0 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
+  .home-buttons { padding: 0 24px; display: flex; flex-direction: column; gap: 14px; }
 
   .btn-main {
-    border: none;
-    border-radius: 18px;
-    padding: 20px 24px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    transition: all 0.2s;
-    text-align: left;
+    border: none; border-radius: 18px; padding: 20px 24px;
+    font-size: 16px; font-weight: 600; cursor: pointer;
+    display: flex; align-items: center; gap: 16px;
+    transition: all 0.2s; text-align: left;
   }
 
   .btn-main:active { transform: scale(0.97); }
 
-  .btn-primary {
-    background: white;
-    color: #0078d4;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  }
-
+  .btn-primary { background: white; color: #0078d4; box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
   .btn-secondary {
-    background: rgba(255,255,255,0.15);
-    color: white;
+    background: rgba(255,255,255,0.15); color: white;
     border: 1px solid rgba(255,255,255,0.25);
-    backdrop-filter: blur(10px);
   }
 
   .btn-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    flex-shrink: 0;
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
   }
 
   .btn-primary .btn-icon { background: #e8f2fd; }
   .btn-secondary .btn-icon { background: rgba(255,255,255,0.15); }
-
   .btn-text { flex: 1; }
   .btn-text span { display: block; font-size: 12px; font-weight: 400; opacity: 0.6; margin-top: 2px; }
 
-  .home-recent {
-    padding: 24px 24px 0;
-  }
+  .home-recent { padding: 24px 24px 0; }
 
   .section-title {
-    font-size: 13px;
-    font-weight: 600;
-    color: rgba(255,255,255,0.6);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
+    font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.6);
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;
   }
 
   .recent-item {
     background: rgba(255,255,255,0.08);
-    border-radius: 14px;
-    padding: 14px 16px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    color: white;
-    margin-bottom: 8px;
+    border-radius: 14px; padding: 14px 16px;
+    display: flex; align-items: center; gap: 12px;
+    color: white; margin-bottom: 8px;
     border: 1px solid rgba(255,255,255,0.08);
   }
 
-  .recent-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
+  .recent-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
   .dot-green { background: #4caf50; }
   .dot-orange { background: #ff9800; }
   .dot-blue { background: #64b5f6; }
-
   .recent-num { font-size: 13px; font-weight: 600; flex: 1; }
   .recent-name { font-size: 11px; opacity: 0.6; }
   .recent-date { font-size: 11px; opacity: 0.5; }
 
-  /* ===== SCREEN NEW FORM ===== */
+  /* ===== SCREEN FORM ===== */
   #screen-form {
     background: #f5f7fa;
     min-height: 760px;
@@ -209,231 +140,187 @@
     background: linear-gradient(135deg, #0078d4, #005a9e);
     padding: 20px 20px 24px;
     color: white;
+    position: sticky; top: 28px; z-index: 50;
   }
 
-  .form-header-top {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 16px;
-  }
+  .form-header-top { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
 
   .back-btn {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    background: rgba(255,255,255,0.15);
-    border: none;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    width: 36px; height: 36px; border-radius: 10px;
+    background: rgba(255,255,255,0.15); border: none;
+    color: white; font-size: 18px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
 
   .form-title { font-size: 18px; font-weight: 700; }
 
   .rekl-badge {
-    background: rgba(255,255,255,0.15);
-    border-radius: 10px;
-    padding: 10px 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    background: rgba(255,255,255,0.15); border-radius: 10px;
+    padding: 10px 16px; display: flex; align-items: center; gap: 10px;
     border: 1px solid rgba(255,255,255,0.2);
   }
 
-  .rekl-badge-icon { font-size: 18px; }
   .rekl-num { font-size: 16px; font-weight: 700; }
   .rekl-date { font-size: 11px; opacity: 0.7; }
 
-  .form-body {
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
+  .form-body { padding: 16px; display: flex; flex-direction: column; gap: 12px; }
 
   .form-card {
-    background: white;
-    border-radius: 16px;
-    padding: 16px;
+    background: white; border-radius: 16px; padding: 16px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   }
 
   .card-label {
-    font-size: 11px;
-    font-weight: 600;
-    color: #888;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
-    margin-bottom: 10px;
+    font-size: 11px; font-weight: 600; color: #888;
+    text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 10px;
   }
 
-  .dropdown-field {
-    border: 1.5px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 12px 14px;
-    font-size: 14px;
-    color: #333;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    background: #fafafa;
+  /* ===== SEARCH INPUT (universal) ===== */
+  .search-box {
+    border: 1.5px solid #e0e0e0; border-radius: 10px;
+    padding: 10px 14px; font-size: 13px;
+    display: flex; align-items: center; gap: 8px;
+    background: #fafafa; margin-bottom: 8px;
   }
 
-  .dropdown-arrow { color: #0078d4; font-size: 12px; }
-
-  .search-input {
-    border: 1.5px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 10px 14px;
-    font-size: 13px;
-    color: #555;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
-    background: #fafafa;
+  .search-box input {
+    border: none; outline: none; background: transparent;
+    font-size: 13px; color: #333; width: 100%;
+    font-family: 'Segoe UI', sans-serif;
   }
 
-  .search-icon { color: #aaa; }
+  .search-box input::placeholder { color: #bbb; }
+  .search-icon { color: #aaa; flex-shrink: 0; }
 
-  .product-list { display: flex; flex-direction: column; gap: 6px; }
+  /* ===== KONTRAHENT SEARCH ===== */
+  .kontrahent-selected {
+    border: 1.5px solid #0078d4; border-radius: 10px;
+    padding: 10px 14px; background: #f0f7ff;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 8px; cursor: pointer;
+  }
+
+  .kontrahent-selected-name { font-size: 14px; font-weight: 600; color: #0078d4; }
+  .kontrahent-clear { color: #aaa; font-size: 16px; cursor: pointer; padding: 0 4px; }
+
+  .kontrahent-list { display: flex; flex-direction: column; gap: 6px; max-height: 180px; overflow-y: auto; }
+
+  .kontrahent-item {
+    border: 1.5px solid #e8e8e8; border-radius: 10px;
+    padding: 10px 14px; cursor: pointer; transition: all 0.15s;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .kontrahent-item:hover { background: #f5f5f5; border-color: #ccc; }
+
+  .kontrahent-item.selected { border-color: #0078d4; background: #f0f7ff; }
+
+  .kontrahent-name { font-size: 13px; font-weight: 600; color: #333; }
+  .kontrahent-nip { font-size: 11px; color: #999; margin-top: 2px; }
+  .kontrahent-check { color: #0078d4; font-size: 16px; }
+
+  /* ===== PRODUCT LIST ===== */
+  .product-list { display: flex; flex-direction: column; gap: 6px; max-height: 200px; overflow-y: auto; }
 
   .product-item {
-    border: 1.5px solid #e8e8e8;
-    border-radius: 10px;
-    padding: 10px 12px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    transition: all 0.15s;
+    border: 1.5px solid #e8e8e8; border-radius: 10px;
+    padding: 10px 12px; display: flex; align-items: center;
+    gap: 10px; cursor: pointer; transition: all 0.15s;
   }
 
-  .product-item.selected {
-    border-color: #0078d4;
-    background: #f0f7ff;
-  }
+  .product-item:hover { background: #f5f5f5; border-color: #ccc; }
+  .product-item.selected { border-color: #0078d4; background: #f0f7ff; }
+  .product-item.hidden { display: none; }
 
   .product-ean {
-    background: #f0f0f0;
-    border-radius: 6px;
-    padding: 4px 8px;
-    font-size: 10px;
-    font-family: monospace;
-    color: #666;
-    flex-shrink: 0;
+    background: #f0f0f0; border-radius: 6px;
+    padding: 4px 8px; font-size: 10px; font-family: monospace;
+    color: #666; flex-shrink: 0;
   }
 
-  .product-item.selected .product-ean {
-    background: #dceefb;
-    color: #0078d4;
-  }
-
+  .product-item.selected .product-ean { background: #dceefb; color: #0078d4; }
   .product-name { font-size: 13px; font-weight: 600; color: #333; flex: 1; }
   .product-desc { font-size: 11px; color: #999; }
-
   .check-icon { color: #0078d4; font-size: 16px; }
 
-  .form-row {
-    display: flex;
-    gap: 10px;
+  .selected-info {
+    margin-top: 8px; padding: 8px 12px; border-radius: 8px;
+    font-size: 12px; font-weight: 600;
+    display: flex; align-items: center; gap: 6px;
   }
 
+  .selected-info.ok { background: #e8f5e9; color: #2e7d32; }
+  .selected-info.warn { background: #fff3e0; color: #e65100; }
+
+  /* ===== OTHER FORM CONTROLS ===== */
+  .form-row { display: flex; gap: 10px; }
   .form-row .form-card { flex: 1; }
 
   .text-input {
-    border: 1.5px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 10px 14px;
-    font-size: 14px;
-    width: 100%;
-    background: #fafafa;
-    color: #333;
+    border: 1.5px solid #e0e0e0; border-radius: 10px;
+    padding: 10px 14px; font-size: 14px; width: 100%;
+    background: #fafafa; color: #333; outline: none;
+    font-family: 'Segoe UI', sans-serif;
   }
+
+  .text-input:focus { border-color: #0078d4; background: #fff; }
 
   .photo-area {
-    border: 2px dashed #ddd;
-    border-radius: 12px;
-    padding: 24px;
-    text-align: center;
-    color: #bbb;
-    font-size: 13px;
+    border: 2px dashed #ddd; border-radius: 12px;
+    padding: 24px; text-align: center; color: #bbb; font-size: 13px;
+    cursor: pointer; transition: all 0.2s;
   }
 
+  .photo-area:hover { border-color: #0078d4; color: #0078d4; background: #f0f7ff; }
   .photo-icon { font-size: 28px; margin-bottom: 8px; }
 
   .textarea-input {
-    border: 1.5px solid #e0e0e0;
-    border-radius: 10px;
-    padding: 10px 14px;
-    font-size: 13px;
-    width: 100%;
-    height: 80px;
-    background: #fafafa;
-    color: #555;
-    resize: none;
+    border: 1.5px solid #e0e0e0; border-radius: 10px;
+    padding: 10px 14px; font-size: 13px; width: 100%;
+    height: 80px; background: #fafafa; color: #555; resize: none;
+    outline: none; font-family: 'Segoe UI', sans-serif;
+  }
+
+  .textarea-input:focus { border-color: #0078d4; background: #fff; }
+
+  .ai-hint { font-size: 11px; color: #aaa; margin-top: 6px; }
+
+  .date-input {
+    border: 1.5px solid #e0e0e0; border-radius: 10px;
+    padding: 10px 14px; font-size: 14px; width: 100%;
+    background: #fafafa; color: #333; outline: none;
+    font-family: 'Segoe UI', sans-serif; cursor: pointer;
   }
 
   .btn-save {
     background: linear-gradient(135deg, #0078d4, #005a9e);
-    color: white;
-    border: none;
-    border-radius: 14px;
-    padding: 16px;
-    font-size: 15px;
-    font-weight: 700;
-    width: 100%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    box-shadow: 0 6px 20px rgba(0,120,212,0.35);
-    transition: all 0.2s;
-    margin-top: 4px;
+    color: white; border: none; border-radius: 14px; padding: 16px;
+    font-size: 15px; font-weight: 700; width: 100%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+    box-shadow: 0 6px 20px rgba(0,120,212,0.35); transition: all 0.2s; margin-top: 4px;
   }
 
   .btn-save:active { transform: scale(0.98); }
 
   /* ===== SCREEN EAN ===== */
-  #screen-ean {
-    background: #000;
-    min-height: 760px;
-    position: relative;
-  }
+  #screen-ean { background: #000; min-height: 760px; position: relative; }
 
   .ean-header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    padding: 16px 20px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+    position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+    padding: 16px 20px; display: flex; align-items: center; gap: 12px;
     background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
   }
 
   .ean-title { color: white; font-size: 18px; font-weight: 700; }
 
   .camera-view {
-    width: 100%;
-    height: 360px;
+    width: 100%; height: 360px;
     background: linear-gradient(135deg, #111 0%, #222 50%, #111 100%);
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
   }
 
   .camera-grid {
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     background-image:
       linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
@@ -441,151 +328,76 @@
   }
 
   .scan-frame {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 240px;
-    height: 140px;
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%); width: 240px; height: 140px;
   }
 
-  .corner {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    border-color: #0078d4;
-    border-style: solid;
-  }
-
-  .corner-tl { top: 0; left: 0; border-width: 3px 0 0 3px; border-radius: 4px 0 0 0; }
-  .corner-tr { top: 0; right: 0; border-width: 3px 3px 0 0; border-radius: 0 4px 0 0; }
-  .corner-bl { bottom: 0; left: 0; border-width: 0 0 3px 3px; border-radius: 0 0 0 4px; }
-  .corner-br { bottom: 0; right: 0; border-width: 0 3px 3px 0; border-radius: 0 0 4px 0; }
+  .corner { position: absolute; width: 24px; height: 24px; border-color: #0078d4; border-style: solid; }
+  .corner-tl { top:0; left:0; border-width: 3px 0 0 3px; border-radius: 4px 0 0 0; }
+  .corner-tr { top:0; right:0; border-width: 3px 3px 0 0; border-radius: 0 4px 0 0; }
+  .corner-bl { bottom:0; left:0; border-width: 0 0 3px 3px; border-radius: 0 0 0 4px; }
+  .corner-br { bottom:0; right:0; border-width: 0 3px 3px 0; border-radius: 0 0 4px 0; }
 
   .scan-line {
-    position: absolute;
-    left: 4px;
-    right: 4px;
-    height: 2px;
+    position: absolute; left: 4px; right: 4px; height: 2px;
     background: linear-gradient(90deg, transparent, #0078d4, #00b4ff, #0078d4, transparent);
-    top: 40%;
     animation: scanAnim 2s ease-in-out infinite;
     box-shadow: 0 0 8px #0078d4;
   }
 
-  @keyframes scanAnim {
-    0%, 100% { top: 15%; }
-    50% { top: 80%; }
-  }
+  @keyframes scanAnim { 0%,100% { top:15%; } 50% { top:80%; } }
 
   .scan-hint {
-    position: absolute;
-    bottom: 20px;
-    left: 0;
-    right: 0;
-    text-align: center;
-    color: rgba(255,255,255,0.6);
-    font-size: 12px;
+    position: absolute; bottom: 20px; left: 0; right: 0;
+    text-align: center; color: rgba(255,255,255,0.6); font-size: 12px;
   }
 
   .ean-result {
-    background: white;
-    border-radius: 24px 24px 0 0;
-    padding: 24px 20px;
-    margin-top: -20px;
-    position: relative;
-    z-index: 5;
-    min-height: 400px;
+    background: white; border-radius: 24px 24px 0 0;
+    padding: 24px 20px; margin-top: -20px;
+    position: relative; z-index: 5; min-height: 420px;
   }
 
-  .ean-handle {
-    width: 40px;
-    height: 4px;
-    background: #e0e0e0;
-    border-radius: 2px;
-    margin: 0 auto 20px;
-  }
+  .ean-handle { width: 40px; height: 4px; background: #e0e0e0; border-radius: 2px; margin: 0 auto 20px; }
 
   .ean-found {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    background: #f0f7ff;
-    border-radius: 16px;
-    padding: 16px;
-    border: 1.5px solid #dceefb;
-    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 14px;
+    background: #f0f7ff; border-radius: 16px; padding: 16px;
+    border: 1.5px solid #dceefb; margin-bottom: 16px;
   }
 
   .ean-product-icon {
-    width: 50px;
-    height: 50px;
+    width: 50px; height: 50px;
     background: linear-gradient(135deg, #0078d4, #005a9e);
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    flex-shrink: 0;
+    border-radius: 14px; display: flex; align-items: center;
+    justify-content: center; font-size: 24px; flex-shrink: 0;
   }
 
   .ean-product-name { font-size: 15px; font-weight: 700; color: #333; }
   .ean-product-desc { font-size: 12px; color: #888; margin-top: 2px; }
   .ean-product-ean { font-size: 11px; color: #0078d4; font-family: monospace; margin-top: 4px; }
 
-  .ean-details {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
+  .ean-details { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
 
-  .ean-detail-card {
-    background: #f9f9f9;
-    border-radius: 12px;
-    padding: 14px;
-    text-align: center;
-  }
-
+  .ean-detail-card { background: #f9f9f9; border-radius: 12px; padding: 14px; text-align: center; }
   .ean-detail-val { font-size: 22px; font-weight: 700; color: #333; }
   .ean-detail-label { font-size: 11px; color: #999; margin-top: 2px; }
 
   .btn-use-product {
     background: linear-gradient(135deg, #0078d4, #005a9e);
-    color: white;
-    border: none;
-    border-radius: 14px;
-    padding: 16px;
-    font-size: 15px;
-    font-weight: 700;
-    width: 100%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    color: white; border: none; border-radius: 14px; padding: 16px;
+    font-size: 15px; font-weight: 700; width: 100%; cursor: pointer;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
     box-shadow: 0 6px 20px rgba(0,120,212,0.35);
   }
 
-  /* ===== NAV ===== */
-  .bottom-nav {
-    background: white;
-    border-top: 1px solid #eee;
-    display: flex;
-    padding: 10px 0 16px;
-  }
+  /* ===== BOTTOM NAV ===== */
+  .bottom-nav { background: white; border-top: 1px solid #eee; display: flex; padding: 10px 0 16px; }
 
   .nav-item {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    font-size: 10px;
-    color: #aaa;
-    cursor: pointer;
-    padding: 4px 0;
-    transition: color 0.15s;
+    flex: 1; display: flex; flex-direction: column; align-items: center;
+    gap: 4px; font-size: 10px; color: #aaa; cursor: pointer;
+    padding: 4px 0; transition: color 0.15s;
   }
 
   .nav-item.active { color: #0078d4; }
@@ -593,28 +405,20 @@
 
   /* ===== NOTIFICATION ===== */
   .notification {
-    position: fixed;
-    top: 20px;
-    left: 50%;
+    position: fixed; top: 20px; left: 50%;
     transform: translateX(-50%) translateY(-80px);
-    background: #333;
-    color: white;
-    border-radius: 12px;
-    padding: 12px 20px;
-    font-size: 13px;
-    font-weight: 500;
-    z-index: 1000;
-    transition: transform 0.3s ease;
-    white-space: nowrap;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    background: #333; color: white; border-radius: 12px;
+    padding: 12px 20px; font-size: 13px; font-weight: 500;
+    z-index: 9999; transition: transform 0.3s ease;
+    white-space: nowrap; box-shadow: 0 8px 24px rgba(0,0,0,0.3);
   }
 
   .notification.show { transform: translateX(-50%) translateY(0); }
   .notification.success { background: #2e7d32; }
   .notification.error { background: #c62828; }
 
-  /* Labels for nav */
-  .nav-label { font-size: 10px; }
+  /* no-results */
+  .no-results { text-align: center; padding: 16px; color: #bbb; font-size: 13px; }
 </style>
 </head>
 <body>
@@ -622,7 +426,6 @@
 <div id="notification" class="notification"></div>
 
 <div class="device">
-  <!-- STATUS BAR -->
   <div class="status-bar">
     <span>9:41</span>
     <span>ReklamacjaAI</span>
@@ -638,36 +441,21 @@
     </div>
 
     <div class="home-stats">
-      <div class="stat-card">
-        <div class="stat-num">12</div>
-        <div class="stat-label">Otwarte</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Dziś</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-num">47</div>
-        <div class="stat-label">W tym mies.</div>
-      </div>
+      <div class="stat-card"><div class="stat-num">12</div><div class="stat-label">Otwarte</div></div>
+      <div class="stat-card"><div class="stat-num">3</div><div class="stat-label">Dziś</div></div>
+      <div class="stat-card"><div class="stat-num">47</div><div class="stat-label">W tym mies.</div></div>
     </div>
 
     <div class="home-buttons">
       <button class="btn-main btn-primary" onclick="showScreen('screen-form')">
         <div class="btn-icon">➕</div>
-        <div class="btn-text">
-          Nowa Reklamacja
-          <span>Utwórz zgłoszenie reklamacyjne</span>
-        </div>
-        <span style="color:#0078d4; font-size:18px;">›</span>
+        <div class="btn-text">Nowa Reklamacja<span>Utwórz zgłoszenie reklamacyjne</span></div>
+        <span style="color:#0078d4;font-size:18px;">›</span>
       </button>
       <button class="btn-main btn-secondary" onclick="showScreen('screen-ean')">
         <div class="btn-icon">📷</div>
-        <div class="btn-text">
-          Skanuj EAN
-          <span>Zeskanuj kod kreskowy towaru</span>
-        </div>
-        <span style="color:rgba(255,255,255,0.5); font-size:18px;">›</span>
+        <div class="btn-text">Skanuj EAN<span>Zeskanuj kod kreskowy towaru</span></div>
+        <span style="color:rgba(255,255,255,0.5);font-size:18px;">›</span>
       </button>
     </div>
 
@@ -708,7 +496,7 @@
         <div class="form-title">Nowa Reklamacja</div>
       </div>
       <div class="rekl-badge">
-        <div class="rekl-badge-icon">🔖</div>
+        <span>🔖</span>
         <div>
           <div class="rekl-num">REKL/04/2026/013</div>
           <div class="rekl-date">Wygenerowano automatycznie · 19.04.2026</div>
@@ -718,53 +506,114 @@
 
     <div class="form-body">
 
-      <!-- Kontrahent -->
+      <!-- KONTRAHENT -->
       <div class="form-card">
         <div class="card-label">Kontrahent</div>
-        <div class="dropdown-field">
-          <span style="color:#555">ABC Sp. z o.o.</span>
-          <span class="dropdown-arrow">▼</span>
+
+        <!-- Pasek wyszukiwania kontrahenta -->
+        <div class="search-box" id="kontrahentSearchBox">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="kontrahentSearch" placeholder="Szukaj kontrahenta..." oninput="filterKontrahenci()" />
+        </div>
+
+        <!-- Wybrany kontrahent (pokazuje się po wyborze) -->
+        <div class="kontrahent-selected" id="kontrahentSelected" style="display:none;">
+          <div>
+            <div class="kontrahent-selected-name" id="kontrahentSelectedName"></div>
+            <div style="font-size:11px;color:#888;" id="kontrahentSelectedNIP"></div>
+          </div>
+          <span class="kontrahent-clear" onclick="clearKontrahent()">✕</span>
+        </div>
+
+        <!-- Lista kontrahentów -->
+        <div class="kontrahent-list" id="kontrahentList">
+          <div class="kontrahent-item" data-id="1" data-nazwa="ABC Sp. z o.o." data-nip="NIP: 1234567890" onclick="selectKontrahent(this)">
+            <div><div class="kontrahent-name">ABC Sp. z o.o.</div><div class="kontrahent-nip">NIP: 1234567890</div></div>
+            <span class="kontrahent-check" style="display:none;">✓</span>
+          </div>
+          <div class="kontrahent-item" data-id="2" data-nazwa="XYZ S.A." data-nip="NIP: 9876543210" onclick="selectKontrahent(this)">
+            <div><div class="kontrahent-name">XYZ S.A.</div><div class="kontrahent-nip">NIP: 9876543210</div></div>
+            <span class="kontrahent-check" style="display:none;">✓</span>
+          </div>
+          <div class="kontrahent-item" data-id="3" data-nazwa="Jan Kowalski FHU" data-nip="NIP: 1112223334" onclick="selectKontrahent(this)">
+            <div><div class="kontrahent-name">Jan Kowalski FHU</div><div class="kontrahent-nip">NIP: 1112223334</div></div>
+            <span class="kontrahent-check" style="display:none;">✓</span>
+          </div>
+          <div class="kontrahent-item" data-id="4" data-nazwa="Tech Solutions Sp. z o.o." data-nip="NIP: 5556667778" onclick="selectKontrahent(this)">
+            <div><div class="kontrahent-name">Tech Solutions Sp. z o.o.</div><div class="kontrahent-nip">NIP: 5556667778</div></div>
+            <span class="kontrahent-check" style="display:none;">✓</span>
+          </div>
         </div>
       </div>
 
-      <!-- Towar -->
+      <!-- TOWAR -->
       <div class="form-card">
         <div class="card-label">Wybierz towar</div>
-        <div class="search-input">
+
+        <!-- Wyszukiwarka towaru -->
+        <div class="search-box">
           <span class="search-icon">🔍</span>
-          <span style="color:#bbb">Szukaj towaru...</span>
+          <input type="text" id="towarSearch" placeholder="Wpisz nazwę lub EAN..." oninput="filterTowary()" />
         </div>
-        <div class="product-list">
-          <div class="product-item selected">
+
+        <!-- Lista towarów -->
+        <div class="product-list" id="productList">
+          <div class="product-item" data-id="1" data-ean="5901234123457" data-nazwa="Telewizor LED 55" data-opis="Smart TV 4K HDR" onclick="selectTowar(this)">
             <div class="product-ean">5901234123457</div>
             <div style="flex:1">
               <div class="product-name">Telewizor LED 55</div>
               <div class="product-desc">Smart TV 4K HDR</div>
             </div>
-            <span class="check-icon">✓</span>
+            <span class="check-icon" style="display:none;">✓</span>
           </div>
-          <div class="product-item">
+          <div class="product-item" data-id="2" data-ean="4006381333931" data-nazwa="Ekspres do kawy" data-opis="Ciśnieniowy 15 bar" onclick="selectTowar(this)">
             <div class="product-ean">4006381333931</div>
             <div style="flex:1">
               <div class="product-name">Ekspres do kawy</div>
               <div class="product-desc">Ciśnieniowy 15 bar</div>
             </div>
+            <span class="check-icon" style="display:none;">✓</span>
           </div>
-          <div class="product-item">
+          <div class="product-item" data-id="3" data-ean="5010677063201" data-nazwa="Laptop 15.6" data-opis="i5 16GB 512SSD" onclick="selectTowar(this)">
             <div class="product-ean">5010677063201</div>
             <div style="flex:1">
               <div class="product-name">Laptop 15.6</div>
               <div class="product-desc">i5 16GB 512SSD</div>
             </div>
+            <span class="check-icon" style="display:none;">✓</span>
           </div>
+          <div class="product-item" data-id="4" data-ean="8710103631019" data-nazwa="Zmywarka" data-opis="60cm 14 kompletów" onclick="selectTowar(this)">
+            <div class="product-ean">8710103631019</div>
+            <div style="flex:1">
+              <div class="product-name">Zmywarka</div>
+              <div class="product-desc">60cm 14 kompletów</div>
+            </div>
+            <span class="check-icon" style="display:none;">✓</span>
+          </div>
+          <div class="product-item" data-id="5" data-ean="5901865238049" data-nazwa="Lodówka" data-opis="NoFrost 350L" onclick="selectTowar(this)">
+            <div class="product-ean">5901865238049</div>
+            <div style="flex:1">
+              <div class="product-name">Lodówka</div>
+              <div class="product-desc">NoFrost 350L</div>
+            </div>
+            <span class="check-icon" style="display:none;">✓</span>
+          </div>
+        </div>
+
+        <div class="no-results" id="noResults" style="display:none;">Nie znaleziono towaru</div>
+
+        <!-- Info o wybranym towarze -->
+        <div class="selected-info warn" id="selectedInfo">
+          ⚠ Nie wybrano towaru
         </div>
       </div>
 
-      <!-- Ilość + Nr seryjny -->
+      <!-- ILOŚĆ + NR SERYJNY -->
       <div class="form-row">
         <div class="form-card">
           <div class="card-label">Ilość (szt.)</div>
-          <input class="text-input" type="number" value="1" style="text-align:center; font-size:20px; font-weight:700; color:#0078d4;">
+          <input class="text-input" type="number" value="1" min="1"
+            style="text-align:center;font-size:20px;font-weight:700;color:#0078d4;">
         </div>
         <div class="form-card" style="flex:2">
           <div class="card-label">Nr seryjny</div>
@@ -772,32 +621,29 @@
         </div>
       </div>
 
-      <!-- Zdjęcie -->
+      <!-- ZDJĘCIE -->
       <div class="form-card">
         <div class="card-label">Zdjęcie uszkodzenia</div>
-        <div class="photo-area">
+        <div class="photo-area" onclick="showNotification('📸 Aparat dostępny w Power Apps','success')">
           <div class="photo-icon">📸</div>
           Dotknij aby zrobić zdjęcie
         </div>
       </div>
 
-      <!-- Opis usterki -->
+      <!-- OPIS USTERKI -->
       <div class="form-card">
         <div class="card-label">Opis usterki</div>
         <textarea class="textarea-input" placeholder="Opisz problem z towarem..."></textarea>
-        <div style="font-size:11px; color:#aaa; margin-top:6px;">💡 AI Claude automatycznie skategoryzuje usterkę</div>
+        <div class="ai-hint">💡 AI Claude automatycznie skategoryzuje usterkę</div>
       </div>
 
-      <!-- Data ważności -->
+      <!-- DATA GWARANCJI -->
       <div class="form-card">
         <div class="card-label">Data ważności gwarancji</div>
-        <div class="dropdown-field">
-          <span style="color:#555">📅 19.04.2027</span>
-          <span class="dropdown-arrow">▼</span>
-        </div>
+        <input class="date-input" type="date" value="2027-04-19">
       </div>
 
-      <!-- Przycisk -->
+      <!-- ZAPISZ -->
       <button class="btn-save" onclick="saveReklamacja()">
         💾 Zapisz reklamację
       </button>
@@ -826,9 +672,7 @@
 
     <div class="ean-result">
       <div class="ean-handle"></div>
-
-      <div style="font-size:12px; font-weight:600; color:#888; text-transform:uppercase; letter-spacing:1px; margin-bottom:14px;">Zeskanowany produkt</div>
-
+      <div style="font-size:12px;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Zeskanowany produkt</div>
       <div class="ean-found">
         <div class="ean-product-icon">📺</div>
         <div>
@@ -837,7 +681,6 @@
           <div class="ean-product-ean">EAN: 5901234123457</div>
         </div>
       </div>
-
       <div class="ean-details">
         <div class="ean-detail-card">
           <div class="ean-detail-val" style="color:#2e7d32;">12</div>
@@ -848,67 +691,160 @@
           <div class="ean-detail-label">Nr produktu</div>
         </div>
       </div>
-
-      <button class="btn-use-product" onclick="useProduct()">
-        ✓ Użyj w reklamacji
-      </button>
-
-      <div style="text-align:center; margin-top:14px; font-size:12px; color:#bbb; cursor:pointer;" onclick="showScreen('screen-ean')">
-        🔄 Skanuj kolejny kod
-      </div>
+      <button class="btn-use-product" onclick="useProduct()">✓ Użyj w reklamacji</button>
+      <div style="text-align:center;margin-top:14px;font-size:12px;color:#bbb;cursor:pointer;">🔄 Skanuj kolejny kod</div>
     </div>
   </div>
 
-  <!-- BOTTOM NAV (Home only) -->
+  <!-- BOTTOM NAV -->
   <div class="bottom-nav" id="bottom-nav">
-    <div class="nav-item active" onclick="showScreen('screen-home')">
-      <span class="nav-icon">🏠</span>
-      <span class="nav-label">Start</span>
-    </div>
-    <div class="nav-item" onclick="showScreen('screen-form')">
-      <span class="nav-icon">➕</span>
-      <span class="nav-label">Nowa</span>
-    </div>
-    <div class="nav-item" onclick="showScreen('screen-ean')">
-      <span class="nav-icon">📷</span>
-      <span class="nav-label">Skan</span>
-    </div>
-    <div class="nav-item">
-      <span class="nav-icon">📊</span>
-      <span class="nav-label">Lista</span>
-    </div>
+    <div class="nav-item active" onclick="showScreen('screen-home')"><span class="nav-icon">🏠</span><span>Start</span></div>
+    <div class="nav-item" onclick="showScreen('screen-form')"><span class="nav-icon">➕</span><span>Nowa</span></div>
+    <div class="nav-item" onclick="showScreen('screen-ean')"><span class="nav-icon">📷</span><span>Skan</span></div>
+    <div class="nav-item"><span class="nav-icon">📊</span><span>Lista</span></div>
   </div>
 
 </div>
 
 <script>
+  // ===== DANE =====
+  const kontrahenci = [
+    {id:1, nazwa:'ABC Sp. z o.o.', nip:'NIP: 1234567890'},
+    {id:2, nazwa:'XYZ S.A.', nip:'NIP: 9876543210'},
+    {id:3, nazwa:'Jan Kowalski FHU', nip:'NIP: 1112223334'},
+    {id:4, nazwa:'Tech Solutions Sp. z o.o.', nip:'NIP: 5556667778'},
+  ];
+
+  let selectedKontrahentId = null;
+  let selectedTowarId = null;
+
+  // ===== NAWIGACJA =====
   function showScreen(id) {
     document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
     document.getElementById(id).classList.add('active');
-
     const navItems = document.querySelectorAll('.nav-item');
     navItems.forEach(n => n.classList.remove('active'));
     if (id === 'screen-home') navItems[0].classList.add('active');
     else if (id === 'screen-form') navItems[1].classList.add('active');
     else if (id === 'screen-ean') navItems[2].classList.add('active');
+
+    // scroll to top on screen change
+    document.querySelector('.device').scrollTop = 0;
   }
 
+  // ===== KONTRAHENT =====
+  function filterKontrahenci() {
+    const q = document.getElementById('kontrahentSearch').value.toLowerCase();
+    document.querySelectorAll('#kontrahentList .kontrahent-item').forEach(item => {
+      const nazwa = item.dataset.nazwa.toLowerCase();
+      const nip = item.dataset.nip.toLowerCase();
+      item.style.display = (nazwa.includes(q) || nip.includes(q)) ? '' : 'none';
+    });
+  }
+
+  function selectKontrahent(el) {
+    selectedKontrahentId = el.dataset.id;
+    const nazwa = el.dataset.nazwa;
+    const nip = el.dataset.nip;
+
+    // Zaznacz wiersz
+    document.querySelectorAll('#kontrahentList .kontrahent-item').forEach(i => {
+      i.classList.remove('selected');
+      i.querySelector('.kontrahent-check').style.display = 'none';
+    });
+    el.classList.add('selected');
+    el.querySelector('.kontrahent-check').style.display = '';
+
+    // Pokaż wybranego, ukryj wyszukiwarkę i listę
+    document.getElementById('kontrahentSelected').style.display = 'flex';
+    document.getElementById('kontrahentSelectedName').textContent = nazwa;
+    document.getElementById('kontrahentSelectedNIP').textContent = nip;
+    document.getElementById('kontrahentSearchBox').style.display = 'none';
+    document.getElementById('kontrahentList').style.display = 'none';
+  }
+
+  function clearKontrahent() {
+    selectedKontrahentId = null;
+    document.getElementById('kontrahentSelected').style.display = 'none';
+    document.getElementById('kontrahentSearchBox').style.display = 'flex';
+    document.getElementById('kontrahentList').style.display = 'flex';
+    document.getElementById('kontrahentSearch').value = '';
+    filterKontrahenci();
+    document.querySelectorAll('#kontrahentList .kontrahent-item').forEach(i => {
+      i.classList.remove('selected');
+      i.querySelector('.kontrahent-check').style.display = 'none';
+    });
+  }
+
+  // ===== TOWAR =====
+  function filterTowary() {
+    const q = document.getElementById('towarSearch').value.toLowerCase();
+    let visible = 0;
+    document.querySelectorAll('#productList .product-item').forEach(item => {
+      const nazwa = item.dataset.nazwa.toLowerCase();
+      const ean = item.dataset.ean.toLowerCase();
+      const opis = item.dataset.opis.toLowerCase();
+      const match = nazwa.includes(q) || ean.includes(q) || opis.includes(q);
+      item.style.display = match ? '' : 'none';
+      if (match) visible++;
+    });
+    document.getElementById('noResults').style.display = visible === 0 ? '' : 'none';
+  }
+
+  function selectTowar(el) {
+    selectedTowarId = el.dataset.id;
+    const nazwa = el.dataset.nazwa;
+
+    // Zaznacz wiersz
+    document.querySelectorAll('#productList .product-item').forEach(i => {
+      i.classList.remove('selected');
+      i.querySelector('.check-icon').style.display = 'none';
+    });
+    el.classList.add('selected');
+    el.querySelector('.check-icon').style.display = '';
+
+    // Aktualizuj info
+    const info = document.getElementById('selectedInfo');
+    info.className = 'selected-info ok';
+    info.textContent = '✓  ' + nazwa;
+  }
+
+  // ===== ZAPIS =====
+  function saveReklamacja() {
+    if (!selectedKontrahentId) {
+      showNotification('Wybierz kontrahenta!', 'error'); return;
+    }
+    if (!selectedTowarId) {
+      showNotification('Wybierz towar!', 'error'); return;
+    }
+    showNotification('✓ Reklamacja REKL/04/2026/013 zapisana!', 'success');
+    setTimeout(() => {
+      clearKontrahent();
+      selectedTowarId = null;
+      document.querySelectorAll('#productList .product-item').forEach(i => {
+        i.classList.remove('selected');
+        i.querySelector('.check-icon').style.display = 'none';
+      });
+      document.getElementById('selectedInfo').className = 'selected-info warn';
+      document.getElementById('selectedInfo').textContent = '⚠ Nie wybrano towaru';
+      document.getElementById('towarSearch').value = '';
+      filterTowary();
+      showScreen('screen-home');
+    }, 1200);
+  }
+
+  function useProduct() {
+    showNotification('✓ Telewizor LED 55 wybrany', 'success');
+    setTimeout(() => showScreen('screen-form'), 900);
+  }
+
+  // ===== NOTYFIKACJA =====
   function showNotification(msg, type = 'success') {
     const n = document.getElementById('notification');
     n.textContent = msg;
     n.className = `notification ${type}`;
     setTimeout(() => n.classList.add('show'), 10);
     setTimeout(() => n.classList.remove('show'), 2800);
-  }
-
-  function saveReklamacja() {
-    showNotification('✓ Reklamacja REKL/04/2026/013 zapisana!', 'success');
-    setTimeout(() => showScreen('screen-home'), 1200);
-  }
-
-  function useProduct() {
-    showNotification('✓ Telewizor LED 55 wybrany', 'success');
-    setTimeout(() => showScreen('screen-form'), 900);
   }
 </script>
 
