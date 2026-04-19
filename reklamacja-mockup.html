@@ -445,8 +445,22 @@
   .list-count { font-size: 13px; background: rgba(255,255,255,0.2); border-radius: 20px; padding: 3px 12px; }
 
   /* ---- STATUS CHIPS ---- */
-  .filter-bar { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 2px; scrollbar-width: none; }
+  .filter-bar { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: none; }
   .filter-bar::-webkit-scrollbar { display: none; }
+
+  .filter-toggle-row { padding-top: 4px; }
+
+  .btn-filter-toggle {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.12); color: white;
+    border: 1px solid rgba(255,255,255,0.2); border-radius: 10px;
+    padding: 7px 14px; font-size: 12px; font-weight: 600;
+    cursor: pointer; width: 100%; transition: all 0.15s;
+  }
+
+  .btn-filter-toggle.active { background: white; color: #0078d4; border-color: white; }
+  .btn-filter-toggle-arrow { margin-left: auto; transition: transform 0.2s; }
+  .btn-filter-toggle.active .btn-filter-toggle-arrow { transform: rotate(180deg); }
 
   .filter-chip {
     flex-shrink: 0; border-radius: 20px; padding: 6px 14px;
@@ -1213,10 +1227,15 @@
       </div>
       <!-- Status chips -->
       <div class="filter-bar">
-        <button class="filter-chip active" id="chip-all"   onclick="setChip('all')">Wszystkie</button>
-        <button class="filter-chip"        id="chip-saved" onclick="setChip('saved')">🟠 Zapisano</button>
-        <button class="filter-chip"        id="chip-synced"onclick="setChip('synced')">🟢 Zsynchr.</button>
-        <button class="filter-chip"        id="chip-filters" onclick="toggleFilterPanel()">⚙ Filtry</button>
+        <button class="filter-chip active" id="chip-all"    onclick="setChip('all')">Wszystkie</button>
+        <button class="filter-chip"        id="chip-saved"  onclick="setChip('saved')">🟠 Zapisano</button>
+        <button class="filter-chip"        id="chip-synced" onclick="setChip('synced')">🟢 Zsynchr.</button>
+      </div>
+      <div class="filter-toggle-row">
+        <button class="btn-filter-toggle" id="chip-filters" onclick="toggleFilterPanel()">
+          <span>⚙</span> <span>Filtry szczegółowe</span>
+          <span class="btn-filter-toggle-arrow">▾</span>
+        </button>
       </div>
     </div>
 
@@ -1502,7 +1521,8 @@
   function toggleFilterPanel() {
     const panel = document.getElementById('filterPanel');
     panel.classList.toggle('open');
-    document.getElementById('chip-filters').classList.toggle('active', panel.classList.contains('open'));
+    const btn = document.getElementById('chip-filters');
+    btn.classList.toggle('active', panel.classList.contains('open'));
   }
 
   // --- DATE QUICK CHIPS ---
