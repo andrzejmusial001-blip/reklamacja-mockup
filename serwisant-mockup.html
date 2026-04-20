@@ -56,44 +56,7 @@ body {
   flex-direction: column;
 }
 
-/* Notch */
-.notch {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 126px;
-  height: 37px;
-  background: #07090f;
-  border-radius: 0 0 22px 22px;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-.notch-cam {
-  width: 12px; height: 12px;
-  background: #1a1f2e;
-  border-radius: 50%;
-  border: 1px solid #2a3040;
-}
-
-/* Status bar */
-.status-bar {
-  height: 50px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding: 0 24px 8px;
-  font-size: 12px;
-  color: var(--text2);
-  flex-shrink: 0;
-  z-index: 10;
-}
-.status-time { font-weight: 600; font-size: 14px; color: var(--text); }
-.status-icons { display: flex; align-items: center; gap: 5px; }
-.status-icons svg { width: 16px; height: 16px; fill: var(--text2); }
+/* PA: notch i status bar usunięte — Power Apps ma własny system UI shell */
 
 /* Screen content */
 .screen-wrap {
@@ -517,20 +480,7 @@ body {
 .ev-name { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 2px; }
 .ev-company { font-size: 11px; color: var(--text2); }
 
-.hour-add-btn {
-  width: 22px; height: 22px;
-  background: rgba(79,142,247,0.1);
-  border: 1px dashed rgba(79,142,247,0.3);
-  border-radius: 6px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px; color: var(--blue);
-  cursor: pointer;
-  margin-top: 4px;
-  opacity: 0;
-  transition: opacity 0.2s;
-  float: right;
-}
-.timeline-hour:hover .hour-add-btn { opacity: 1; }
+/* PA: hour-add-btn usunięty — :hover nie działa w Power Apps (mobile) */
 
 /* Week view */
 .week-view { padding: 0 20px; display: none; }
@@ -960,6 +910,125 @@ body {
 }
 
 /* ════════════════════════════════════════════
+   SCREEN: DETAIL ZSR
+════════════════════════════════════════════ */
+.detail-header {
+  padding: 14px 20px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.detail-title-block { flex: 1; }
+.detail-nr { font-size: 11px; font-weight: 700; color: var(--text3); font-family: monospace; }
+.detail-name { font-size: 15px; font-weight: 800; color: var(--text); }
+
+.detail-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px 120px;
+  scrollbar-width: none;
+}
+.detail-body::-webkit-scrollbar { display: none; }
+
+.detail-section {
+  background: var(--surf1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-bottom: 12px;
+}
+.detail-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 10px;
+}
+.detail-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.detail-row:last-child { margin-bottom: 0; }
+.detail-row svg { width: 15px; height: 15px; flex-shrink: 0; margin-top: 2px; }
+.detail-row-label { font-size: 11px; color: var(--text3); margin-bottom: 2px; }
+.detail-row-val { font-size: 14px; color: var(--text); font-weight: 500; }
+
+/* Status change row */
+.status-change-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.status-btn {
+  flex: 1;
+  min-width: 80px;
+  padding: 9px 8px;
+  background: var(--surf2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text3);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s;
+}
+.status-btn.active-blue { border-color: var(--blue); background: rgba(79,142,247,0.12); color: var(--blue); }
+.status-btn.active-yellow { border-color: var(--yellow); background: rgba(251,191,36,0.1); color: var(--yellow); }
+.status-btn.active-green { border-color: var(--green); background: rgba(52,211,153,0.1); color: var(--green); }
+.status-btn.active-gray { border-color: var(--text3); background: rgba(100,116,139,0.1); color: var(--text3); }
+
+/* ERP sync block */
+.erp-block {
+  background: var(--surf1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  margin-bottom: 12px;
+}
+.erp-status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.erp-label { font-size: 11px; color: var(--text3); font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+.erp-badge-sync { font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 10px; }
+.erp-badge-sync.synced { background: rgba(52,211,153,0.12); color: var(--green); }
+.erp-badge-sync.not-synced { background: rgba(251,191,36,0.1); color: var(--yellow); }
+
+.btn-erp-sync {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.35);
+}
+.btn-erp-sync svg { width: 18px; height: 18px; }
+
+/* Sticky bottom (detail) */
+.detail-sticky {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 12px 20px 16px;
+  background: linear-gradient(0deg, var(--bg) 70%, transparent);
+  display: flex;
+  gap: 10px;
+}
+
+/* ════════════════════════════════════════════
    Utility
 ════════════════════════════════════════════ */
 .spacer { flex-shrink: 0; }
@@ -970,22 +1039,6 @@ body {
 <body>
 
 <div class="phone">
-  <!-- Notch -->
-  <div class="notch"><div class="notch-cam"></div></div>
-
-  <!-- Status Bar -->
-  <div class="status-bar">
-    <span class="status-time">09:41</span>
-    <div class="status-icons">
-      <!-- Signal -->
-      <svg viewBox="0 0 24 24"><rect x="1" y="16" width="3" height="7" rx="1"/><rect x="6" y="12" width="3" height="11" rx="1"/><rect x="11" y="8" width="3" height="15" rx="1"/><rect x="16" y="4" width="3" height="19" rx="1" opacity="0.35"/></svg>
-      <!-- WiFi -->
-      <svg viewBox="0 0 24 24"><path d="M12 18.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/><path d="M8.5 15.5a5 5 0 017 0" stroke="#94a3b8" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M5.5 12.5a9 9 0 0113 0" stroke="#94a3b8" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/></svg>
-      <!-- Battery -->
-      <svg viewBox="0 0 24 24"><rect x="1" y="7" width="18" height="10" rx="2" stroke="#94a3b8" stroke-width="1.5" fill="none"/><rect x="3" y="9" width="12" height="6" rx="1" fill="#34d399"/><path d="M20 10v4c1 0 2-.5 2-2s-1-2-2-2z" fill="#94a3b8"/></svg>
-    </div>
-  </div>
-
   <!-- Screens -->
   <div class="screen-wrap">
 
@@ -1067,7 +1120,7 @@ body {
         <button class="section-more" onclick="switchScreen('screen-lista')">Zobacz wszystkie</button>
       </div>
 
-      <div class="zsr-card status-w-realizacji" onclick="void(0)">
+      <div class="zsr-card status-w-realizacji" onclick="switchScreen('screen-detail')" title="Otwórz podgląd ZSR">
         <div class="zsr-top">
           <span class="zsr-nr">ZSR/2026/015</span>
           <div class="zsr-badges">
@@ -1461,7 +1514,16 @@ body {
               <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke="#64748b" stroke-width="2" fill="none"/><polyline points="12,7 12,12 15,15" stroke="#64748b" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
               Godzina
             </div>
-            <input class="form-input" type="time" value="09:00" style="color-scheme:dark">
+            <!-- PA: Dropdown HH + Dropdown MM — brak natywnego TimePicker w Power Apps -->
+            <div style="display:flex;gap:6px;align-items:center">
+              <select class="form-input" style="flex:1;padding:12px 6px;text-align:center;cursor:pointer">
+                <option>07</option><option>08</option><option selected>09</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option><option>16</option><option>17</option><option>18</option><option>19</option>
+              </select>
+              <span style="color:var(--text3);font-weight:700;font-size:16px">:</span>
+              <select class="form-input" style="flex:1;padding:12px 6px;text-align:center;cursor:pointer">
+                <option selected>00</option><option>15</option><option>30</option><option>45</option>
+              </select>
+            </div>
           </div>
           <div class="form-group" style="margin-bottom:0">
             <div class="form-label">
@@ -1538,7 +1600,11 @@ body {
       </div>
 
       <div class="sort-row">
-        <span class="sort-label">47 zleceń</span>
+        <!-- PA: Button "Odśwież" zamiast pull-to-refresh (nie istnieje w Power Apps) -->
+        <button class="sort-btn" style="color:var(--text3)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2" width="14" height="14"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+          Odśwież
+        </button>
         <button class="sort-btn">
           <svg viewBox="0 0 24 24"><path d="M3 6h18M7 12h10M11 18h2" stroke="#4f8ef7" stroke-width="2" stroke-linecap="round"/></svg>
           Sortuj: Data ↓
@@ -1570,7 +1636,7 @@ body {
 
         <div class="list-section-label" style="margin-top:14px;margin-bottom:8px">Otwarte — aktywne</div>
 
-        <div class="zsr-card-full s-realizacja">
+        <div class="zsr-card-full s-realizacja" onclick="switchScreen('screen-detail')" style="cursor:pointer" title="Otwórz podgląd ZSR">
           <div class="zcf-header">
             <span class="zcf-nr">ZSR/2026/015</span>
             <div class="zcf-badges"><span class="badge badge-blue">W realizacji</span><span class="badge badge-red">Pilne</span></div>
@@ -1657,6 +1723,116 @@ body {
 
     </div>
 
+    <!-- ═══════════ SCREEN DETAIL ZSR ═══════════ -->
+    <div class="screen" id="screen-detail" style="position:relative">
+
+      <div class="detail-header">
+        <button class="back-btn" onclick="switchScreen('screen-lista')">
+          <svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+        </button>
+        <div class="detail-title-block">
+          <div class="detail-nr">ZSR/2026/015</div>
+          <div class="detail-name">Metal-Prod Sp. z o.o.</div>
+        </div>
+        <span class="badge badge-blue">W realizacji</span>
+      </div>
+
+      <div class="detail-body">
+
+        <!-- Podstawowe info -->
+        <div class="detail-section">
+          <div class="detail-section-title">Informacje o zleceniu</div>
+          <div class="detail-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3-3a8 8 0 01-14.8 7.4L2 20l4.3-3.9a8 8 0 017.4-14.8l-3 3z"/></svg>
+            <div>
+              <div class="detail-row-label">Urządzenie</div>
+              <div class="detail-row-val">Tokarka CNC TUR-560</div>
+              <div style="font-size:11px;color:var(--text3);margin-top:2px">S/N: TUR2021-0045 | Hala A</div>
+            </div>
+          </div>
+          <div class="detail-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13" stroke-linecap="round"/><line x1="16" y1="17" x2="8" y2="17" stroke-linecap="round"/></svg>
+            <div>
+              <div class="detail-row-label">Opis usterki</div>
+              <div class="detail-row-val">Nieprawidłowe drgania wrzeciona podczas pracy z prędkością > 2000 rpm. Wymiana łożysk.</div>
+            </div>
+          </div>
+          <div class="detail-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><circle cx="12" cy="12" r="9"/><polyline points="12,7 12,12 15,15" stroke-linecap="round"/></svg>
+            <div>
+              <div class="detail-row-label">Termin realizacji</div>
+              <div class="detail-row-val">Dziś, 19 kwiecień 2026 · 14:00</div>
+            </div>
+          </div>
+          <div class="detail-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            <div>
+              <div class="detail-row-label">Serwisant</div>
+              <div class="detail-row-val">T. Kowalski</div>
+            </div>
+          </div>
+          <div class="detail-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>
+            <div>
+              <div class="detail-row-label">Priorytet</div>
+              <div class="detail-row-val" style="color:var(--red)">Pilne</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Zmiana statusu -->
+        <!-- PA: 4 przyciski = Button x4 z UpdateContext({varStatus: "..."}) -->
+        <div class="detail-section">
+          <div class="detail-section-title">Zmień status ZSR</div>
+          <div class="status-change-row">
+            <button class="status-btn active-yellow" onclick="setStatus(this,'yellow')">Do realizacji</button>
+            <button class="status-btn active-blue" onclick="setStatus(this,'blue')" style="border-color:var(--blue);background:rgba(79,142,247,0.12);color:var(--blue)">W realizacji</button>
+            <button class="status-btn" onclick="setStatus(this,'green')">Zamknięte</button>
+            <button class="status-btn" onclick="setStatus(this,'gray')">Anulowane</button>
+          </div>
+        </div>
+
+        <!-- Integracja ERP -->
+        <!-- PA: Power Automate Flow "PA_SynchronizujZSR" → HTTP POST → REST Bridge :8506 -->
+        <div class="erp-block">
+          <div class="erp-status-row">
+            <span class="erp-label">Status ERP XL</span>
+            <span class="erp-badge-sync not-synced" id="erp-badge">Niezapisany</span>
+          </div>
+          <div style="font-size:12px;color:var(--text3);margin-bottom:12px">
+            ZSR nie zostało jeszcze przesłane do Comarch ERP XL. Kliknij poniżej aby zsynchronizować.
+          </div>
+          <button class="btn-erp-sync" onclick="syncERP()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+            Synchronizuj z ERP XL
+          </button>
+        </div>
+
+        <!-- Czynności (tylko podgląd w tym ekranie) -->
+        <div class="detail-section">
+          <div class="detail-section-title">Czynność serwisowa</div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <div style="font-size:13px;font-weight:600;color:var(--text)">Wymiana łożysk wrzeciona</div>
+              <div style="font-size:11px;color:var(--text3);margin-top:2px">Czas: 2,5 godz.</div>
+            </div>
+            <span class="badge badge-yellow">Do wyk.</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Sticky bottom -->
+      <div class="detail-sticky">
+        <button class="btn-cancel" onclick="switchScreen('screen-lista')">Wróć</button>
+        <button class="btn-save">
+          <svg viewBox="0 0 24 24"><polyline points="20,6 9,17 4,12" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg>
+          Zapisz zmiany
+        </button>
+      </div>
+
+    </div>
+
   </div><!-- /screen-wrap -->
 
   <!-- Bottom Navigation -->
@@ -1685,14 +1861,33 @@ function switchScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 
-  // Nav active state
   document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
   const map = {
     'screen-home': 'nav-home',
     'screen-terminarz': 'nav-terminarz',
-    'screen-lista': 'nav-lista'
+    'screen-lista': 'nav-lista',
+    'screen-detail': 'nav-lista'
   };
   if (map[id]) document.getElementById(map[id]).classList.add('active');
+}
+
+function setStatus(btn, color) {
+  btn.closest('.status-change-row').querySelectorAll('.status-btn').forEach(b => {
+    b.className = 'status-btn';
+  });
+  btn.classList.add('active-' + color);
+}
+
+function syncERP() {
+  const badge = document.getElementById('erp-badge');
+  badge.textContent = 'Synchronizowanie...';
+  badge.className = 'erp-badge-sync not-synced';
+  setTimeout(() => {
+    badge.textContent = 'Zsynchronizowano';
+    badge.className = 'erp-badge-sync synced';
+    badge.closest('.erp-block').querySelector('.btn-erp-sync').textContent = '✓ Zapisano w ERP XL';
+    badge.closest('.erp-block').querySelector('div[style*="margin-bottom:12px"]').textContent = 'ZSR/2026/015 zapisano jako ZSR 15/2026 (SZN_Id: 1247).';
+  }, 1400);
 }
 
 function showTermView(view, btn) {
